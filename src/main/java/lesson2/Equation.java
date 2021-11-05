@@ -24,8 +24,8 @@ public class Equation {
 
     public static double frictionForce(double mas, double frict, double ugol) {
         double ves = 9.81 * mas;
-        double sinus = Math.sin( Math.toRadians(ugol));
-        double friction = ves * frict * sinus;
+        double cosinus = Math.cos( Math.toRadians(ugol));
+        double friction = ves * frict * cosinus;
                return friction;
     }
     }
