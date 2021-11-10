@@ -6,7 +6,7 @@ public class Equation {
 
     public static void main(String[] args) {
 
-        Scanner in  = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
 
         System.out.println("Данная программа вычисляет силу трения на наклонной поверхности.");
         System.out.println("Введите массу объекта в кг: ");
@@ -16,16 +16,14 @@ public class Equation {
         System.out.println("Введите угол наклона пов-ти в градусах: ");
         double incline = in.nextDouble();
         System.out.print("Сила трения составляет: ");
-        double result = frictionForce( mas, frictionCoefficient, incline);
+        double result = frictionForce(mas, frictionCoefficient, incline);
         System.out.printf("%.2f", result);
-        System.out.print(" H");
         in.close();
     }
 
-    public static double frictionForce(double mas, double frict, double ugol) {
-        double ves = 9.81 * mas;
-        double cosinus = Math.cos( Math.toRadians(ugol));
-        double friction = ves * frict * cosinus;
-               return friction;
+    public static double frictionForce(double mass, double coefficientOfFriction, double angle) {
+        double weight = 9.81 * mass;
+        double friction = weight * coefficientOfFriction * Math.cos(Math.toRadians(angle));
+        return friction;
     }
-    }
+}
