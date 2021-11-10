@@ -17,6 +17,7 @@ public class QuadraticEquation {
             double z = solution1(a, b);
             String result = String.format("%.3f", z);
             System.out.println("Единственное решение уравнения  " + result);
+
         }
         if (d < 0) {
             System.out.println("Дискриминант равен  " +d);
@@ -44,13 +45,10 @@ public class QuadraticEquation {
     public static double solution2(double a, double b, double c) {
         double d = Math.pow(b, 2) - 4 * a * c;
         return (-b + Math.sqrt(d)) / 2 * a;
-
-
     }
 
     public static double solution3(double a, double b, double c) {
         double d = Math.pow(b, 2) - 4 * a * c;
         return (-b - Math.sqrt(d)) / 2 * a;
-
     }
 }
