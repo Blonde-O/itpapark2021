@@ -17,7 +17,7 @@ public class Equation {
         double incline = in.nextDouble();
         System.out.print("Сила трения составляет: ");
         double result = frictionForce(mas, frictionCoefficient, incline);
-        System.out.printf("%.2f", result);
+        System.out.printf("%.2f H", result);
         in.close();
     }
 
