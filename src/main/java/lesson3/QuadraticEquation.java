@@ -17,19 +17,27 @@ public class QuadraticEquation {
         System.out.print("Введите коэффициент c=  ");
         double c = in.nextDouble();
         double d = discriminant(a, b, c);
-        System.out.println("Уравнение имеет вид   " + a + "x^2+" + b + "x+" + c);
-
+        String discr = String.format("%.3f", d);
+        System.out.println("Квадратное уравнение имеет вид:");
+        if (b > 0) {
+            System.out.print(a + "X^2 + " + b + "X");
+        } else {
+            System.out.print(a + "X^2 " + b + "X");
+        }
+        if (c > 0) {
+            System.out.print(" + " + c);
+        } else {
+            System.out.println(" " + c);
+        }
+        System.out.println("Дискриминант равен  " + discr);
         if (d == 0) {
-            System.out.println("Дискриминант равен  " + d);
             double z = solution1(a, b);
             String result = String.format("%.3f", z);
             System.out.println("Единственное решение уравнения  " + result);
 
         } else if (d < 0) {
-            System.out.println("Дискриминант равен  " + d);
             System.out.println("Нет действительных решений уравнения");
         } else {
-            System.out.println("Дискриминант равен  " + d);
             double z1 = solution2(a, b, d);
             String result1 = String.format("%.3f", z1);
             double z2 = solution3(a, b, d);
