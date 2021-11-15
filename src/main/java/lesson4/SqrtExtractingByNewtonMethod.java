@@ -22,7 +22,8 @@ public class SqrtExtractingByNewtonMethod {
     public static double sqrt(double n) {
         double a = 1;
         for (double i = 1; i <= 10; i++) {
-            a = a - (a * a - n) / (2 * a);
+            
+            a = a - (a * a  - n) / (2 * a);
         }
         return a;
 
