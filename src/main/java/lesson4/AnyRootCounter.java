@@ -8,21 +8,21 @@ public class AnyRootCounter {
         System.out.println("Введите число, из которого извлекаете корень");
         double n = in.nextDouble();
         System.out.println("Введите степень извлекаемого корня");
-        double m = in.nextDouble();
+        int m = in.nextInt();
         double result = anyRoot(n, m);
         double g = 1;
         System.out.println("Ваш результат равен:\n" + result);
-        for (double i = 1; i <= m; i++) {
+        for (int i = 1; i <= m; i++) {
             g = g * result;
         }
         System.out.println("Проверка результата\n" + g);
     }
 
-    public static double anyRoot(double n, double m) {
+    public static double anyRoot(double n, int m) {
         double a = 1;
-        for (double i = 1; i <= 100; i++) {
+        for (int i = 1; i <= 50; i++) {
             double b = 1;
-            for (double j = 1; j <= (m - 1); j++) {
+            for (int j = 1; j <= (m - 1); j++) {
                 b = b * a;
             }
             a = a - (a * b - n) / (m * b);
