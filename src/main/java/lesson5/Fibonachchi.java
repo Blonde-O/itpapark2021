@@ -37,9 +37,7 @@ public class Fibonachchi {
             b = result;
         }
         return b;
-
     }
-
 }
 
 
