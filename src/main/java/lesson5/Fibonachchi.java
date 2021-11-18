@@ -8,19 +8,17 @@ public class Fibonachchi {
         Scanner in = new Scanner(System.in);
         System.out.print("Введите порядковый номер Числа Фибоначчи \nn= ");
         int n = in.nextInt();
-        if (n == 0) {
-            System.out.println("Искомое число Фибоначчи равно 0");
-            return;
-        }
-        if (n == 1) {
-            System.out.println("Искомое число Фибоначчи равно 1");
-            return;
-        }
         System.out.println("Искомое число Фибоначчи равно " + fibonachchiRecursion(n));
         System.out.println("Искомое число Фибоначчи равно " + fibonachichiFor(n));
     }
 
     public static int fibonachchiRecursion(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
         if (n <= 2) {
             return 1;
         } else {
@@ -31,6 +29,12 @@ public class Fibonachchi {
     public static int fibonachichiFor(int n) {
         int a = 0;
         int b = 1;
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
         for (int i = 2; i <= n; ++i) {
             int result = a + b;
             a = b;
