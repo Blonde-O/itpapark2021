@@ -32,7 +32,7 @@ public class ActionsWithArray {
 
     public static int minimalValue(int[] array) {
         int b = array[0];
-        for (int i = 1; i < array.length; ++i) {
+        for (int i = 1; i < array.length; i++) {
             if (b >= array[i]) {
                 b = array[i];
             }
@@ -42,7 +42,7 @@ public class ActionsWithArray {
 
     public static int maximalValue(int[] array) {
         int b = array[0];
-        for (int i = 1; i < array.length; ++i) {
+        for (int i = 1; i < array.length; i++) {
             if (b <= array[i]) {
                 b = array[i];
             }
