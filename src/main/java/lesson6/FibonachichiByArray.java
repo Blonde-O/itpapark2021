@@ -7,9 +7,8 @@ public class FibonachichiByArray {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int n;
-        String s;
-        int m;
+        int n, m;
+        String s = "notExit";
         int[] initialArray = new int[30];
         System.out.println("\nВведите индекс искомого числа Фибоначчи");
         n = in.nextInt();
@@ -27,9 +26,13 @@ public class FibonachichiByArray {
         }
         System.out.println(Arrays.toString(initialArray));
         System.out.println("Ваше число Фибоначчи равно  " + initialArray[n - 1]);
-        do {
-            m = in.nextInt();
-
+        while (!s.equals("exit")) {
+            System.out.println("\nВведите индекс искомого числа Фибоначчи или 'exit' для выхода из программы");
+            s = in.next();
+            if (s.equals("exit")){
+                break;
+            }
+            m = Integer.parseInt(s);
             if (m <= n) {
                 System.out.println(Arrays.toString(initialArray));
                 System.out.println("Ваше число Фибоначчи равно  " + initialArray[m - 1]);
@@ -45,10 +48,7 @@ public class FibonachichiByArray {
                 System.out.println(Arrays.toString(initialArray));
                 System.out.println("Ваше число Фибоначчи равно  " + initialArray[m - 1]);
             }
-            System.out.println("\nВведите \"exit\" для выхода или любой другой символ для продолжения");
-            s = in.next();
         }
-        while (!s.equals("exit"));
         System.out.println("До встречи!");
     }
 }
