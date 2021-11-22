@@ -14,21 +14,21 @@ public class FibonachichiByArray {
         System.out.println("\nВведите индекс искомого числа Фибоначчи");
         n = in.nextInt();
         if (n == 0) {
-                System.out.println("Ваше число Фиббоначи равно\t 0");
-                return;
-            }
-            int a = 1;
-            int b = 1;
-            for (int i = 0; i < n; i++) {
-                initialArray[i] = a;
-                int result = a + b;
-                a = b;
-                b = result;
-            }
-            System.out.println(Arrays.toString(initialArray));
-            System.out.println("Ваше число Фибоначчи равно  " + initialArray[n - 1]);
-            do{
-                m = in.nextInt();
+            System.out.println("Ваше число Фиббоначи равно\t 0");
+            return;
+        }
+        int a = 1;
+        int b = 1;
+        for (int i = 0; i < n; i++) {
+            initialArray[i] = a;
+            int result = a + b;
+            a = b;
+            b = result;
+        }
+        System.out.println(Arrays.toString(initialArray));
+        System.out.println("Ваше число Фибоначчи равно  " + initialArray[n - 1]);
+        do {
+            m = in.nextInt();
 
             if (m <= n) {
                 System.out.println(Arrays.toString(initialArray));
@@ -47,8 +47,8 @@ public class FibonachichiByArray {
             }
             System.out.println("\nВведите \"exit\" для выхода или любой другой символ для продолжения");
             s = in.next();
-            }
-        while(!s.equals("exit"));
+        }
+        while (!s.equals("exit"));
         System.out.println("До встречи!");
     }
 }
