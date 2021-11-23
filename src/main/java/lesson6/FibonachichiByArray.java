@@ -26,7 +26,7 @@ public class FibonachichiByArray {
         }
         System.out.println(Arrays.toString(initialArray));
         System.out.println("Ваше число Фибоначчи равно  " + initialArray[n - 1]);
-        do {
+        while (true) {
             System.out.println("\nВведите индекс искомого числа Фибоначчи или 'exit' для выхода из программы");
             s = in.next();
             if (s.equals("exit")) {
@@ -46,7 +46,6 @@ public class FibonachichiByArray {
             System.out.println(Arrays.toString(initialArray));
             System.out.println("Ваше число Фибоначчи равно  " + initialArray[m - 1]);
         }
-        while (true);
         System.out.println("До встречи!");
     }
 }
