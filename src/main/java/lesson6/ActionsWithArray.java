@@ -17,8 +17,10 @@ public class ActionsWithArray {
         }
         System.out.println("Ваш массив: \n" + Arrays.toString(array));
         System.out.println("\nСреднее арифметическое Вашего массива равно:  " + average(array));
-        System.out.println("Минимальное значение Вашего массива равно:  " + minimalValue(array) + "\t" + minimalValueInteger(array));
-        System.out.println("Максимальное значение Вашего массива равно:  " + maximalValue(array) + "\t" + maximalValueInteger(array));
+        System.out.println("Минимальное значение Вашего массива равно:  " + minimalValue(array) + "\t"
+                + minimalValueInteger(array) + "\t" + minimalValueSort(array));
+        System.out.println("Максимальное значение Вашего массива равно:  " + maximalValue(array) + "\t"
+                + maximalValueInteger(array) + "\t" + maximalValueSort(array));
         in.close();
 
     }
@@ -51,6 +53,11 @@ public class ActionsWithArray {
         return b;
     }
 
+    public static int minimalValueSort(int[] array) {
+        Arrays.sort(array);
+        return array[0];
+    }
+
     public static int maximalValue(int[] array) {
         int b = array[0];
         for (int i = 1; i < array.length; i++) {
@@ -69,5 +76,10 @@ public class ActionsWithArray {
             }
         }
         return b;
+    }
+
+    public static int maximalValueSort(int[] array) {
+        Arrays.sort(array);
+        return array[array.length - 1];
     }
 }
