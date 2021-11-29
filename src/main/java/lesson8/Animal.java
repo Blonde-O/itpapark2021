@@ -22,6 +22,6 @@ public class Animal {
     }
 
     public void makeVoice() {
-        System.out.println(" говорит " + this.voice);
+        System.out.println(" говорит " +this.voice);
     }
 }

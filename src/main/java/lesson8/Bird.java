@@ -8,7 +8,7 @@ public class Bird extends Animal {
     }
 
     public String getKind() {
-        return kind;
+        return this.kind;
     }
 
     @Override

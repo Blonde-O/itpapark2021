@@ -4,13 +4,9 @@ public class Cat extends Animal {
 
     String kind = "Кошка";
 
-    public Cat(String name) {
-        super(name);
-    }
+    public Cat(String name) {super(name);}
 
-    public String getKind() {
-        return kind;
-    }
+    public String getKind() {return this.kind;}
 
     @Override
     public void makeVoice() {

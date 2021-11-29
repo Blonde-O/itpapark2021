@@ -14,5 +14,4 @@ public class AnimalRunner {
             animal.makeVoice();
         }
     }
-
 }
