@@ -24,6 +24,7 @@ public class GeneralArray {
     }
 
     public int[][] fillMatrix (){
+        System.out.println("Матрица:");
         for(int i=0; i<matrix.length; i++){
             System.out.println();
             for(int j=0; j<matrix[i].length; j++){
@@ -38,6 +39,7 @@ public class GeneralArray {
 
     public int [][] multiplyMatrix(){
         int y =3;
+        System.out.println("Умножение матрицы на число " +y+ " :");
         int [][] multipliedMatrix = new int[n][m];
         for(int i=0; i<matrix.length; i++){
             System.out.println();
@@ -50,6 +52,7 @@ public class GeneralArray {
         return multipliedMatrix;
     }
     public int [][] sqrtMatrix(){
+        System.out.println("Возведение матрицы в квадрат:");
         int [][] sqrtedMatrix = new int[n][m];
         for(int i=0; i<matrix.length; i++){
             System.out.println();
@@ -62,6 +65,7 @@ public class GeneralArray {
         return sqrtedMatrix;
     }
     public int [][] unitMatrix(){
+        System.out.println("Возвращение единичной матрицы:");
         int a;
         int [][] unitedMatrix = new int[n][m];
         for(int i=0; i<matrix.length; i++){
@@ -79,6 +83,7 @@ public class GeneralArray {
     }
 
     public int[][] summaOfMatrix(int[][] matrixx) {
+        System.out.println("Сложение матриц");
         int[][] sumMatrix = new int[n][m];
         for (int i = 0; i < matrix.length; i++) {
             System.out.println();
@@ -92,6 +97,7 @@ public class GeneralArray {
     }
 
     public int[][] subtractionOfMatrix(int[][] matrixx) {
+        System.out.println("Вычитание матриц:");
         int[][] subMatrix = new int[n][m];
         for (int i = 0; i < matrix.length; i++) {
             System.out.println();
@@ -104,26 +110,21 @@ public class GeneralArray {
         return subMatrix;
     }
 
-    public int[][] multiplicationOfMatrix(int[][] matrixx) {
+    public int[][] multiplicationOfMatrix(int[][] matrixx) { //http://sh2533.blogspot.com/2013/01/blog-post_7928.html
+        System.out.println("Умножение матрицы на матрицу:");
         int a = matrix.length;
         int с = matrixx[0].length;
         int d = matrixx.length;
         int[][] res = new int[a][с];
         for (int i = 0; i < a; i++) {
-            //System.out.println();
-            for (int j = 0; j < с; j++) {
-                for (int k =0; k<d; k++){
-                res [i][j] +=matrix [i][k]*matrixx[k][j];
-                //System.out.print(res[i][j] + " ");
-                }
-            }
-        }
-        for (int i = 0; i < res.length; i++) {
             System.out.println();
-            for (int j = 0; j < res[0].length; j++) {
+            for (int j = 0; j < с; j++) {
+                for (int k = 0; k < d; k++) {
+                    res[i][j] += matrix[i][k] * matrixx[k][j];
+                }
                 System.out.print(res[i][j] + " ");
             }
-         }
+        }
         System.out.println();
         return res;
     }

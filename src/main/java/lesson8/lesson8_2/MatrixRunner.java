@@ -7,11 +7,11 @@ public class MatrixRunner {
         //matrix1.printSize();
         matrix1.fillMatrix();
         int [][] mmatrix = matrix2.fillMatrix();
-        /*matrix1.multiplyMatrix();
+        matrix1.multiplyMatrix();
         matrix1.sqrtMatrix();
         matrix1.unitMatrix();
         matrix1.summaOfMatrix(mmatrix);
-        matrix1.subtractionOfMatrix(mmatrix);*/
+        matrix1.subtractionOfMatrix(mmatrix);
         matrix1.multiplicationOfMatrix(mmatrix);
 
 
