@@ -1,4 +1,6 @@
-package lesson8;
+package lesson8.lesson8_1.kindsOfAnimals;
+
+import lesson8.lesson8_1.Animal;
 
 public class Bird extends Animal {
     String kind = "Птица";
