@@ -6,6 +6,7 @@ public class GeneralArray {
     private int m;
     private int [][] matrix;
 
+
     public GeneralArray(int n, int m) {
         this.n = n;
         this.m = m;
@@ -57,7 +58,7 @@ public class GeneralArray {
                 System.out.print(sqrtedMatrix[i][j]+ " ");
             }
         }
-        System.out.println("");
+        System.out.println();
         return sqrtedMatrix;
     }
     public int [][] unitMatrix(){
@@ -67,13 +68,63 @@ public class GeneralArray {
             System.out.println();
             for(int j=0; j<matrix[i].length; j++){
                 if(i==j){
-                    a=1;
-                }
-                else a=0;
-                unitedMatrix [i][j]=a;
-                System.out.print(unitedMatrix [i][j]+ " ");
+                    a = 1;
+                } else a = 0;
+                unitedMatrix[i][j] = a;
+                System.out.print(unitedMatrix[i][j] + " ");
             }
         }
+        System.out.println();
         return unitedMatrix;
+    }
+
+    public int[][] summaOfMatrix(int[][] matrixx) {
+        int[][] sumMatrix = new int[n][m];
+        for (int i = 0; i < matrix.length; i++) {
+            System.out.println();
+            for (int j = 0; j < matrix[i].length; j++) {
+                sumMatrix[i][j] = matrix[i][j] + matrixx[i][j];
+                System.out.print(sumMatrix[i][j] + " ");
+            }
+        }
+        System.out.println();
+        return sumMatrix;
+    }
+
+    public int[][] subtractionOfMatrix(int[][] matrixx) {
+        int[][] subMatrix = new int[n][m];
+        for (int i = 0; i < matrix.length; i++) {
+            System.out.println();
+            for (int j = 0; j < matrix[i].length; j++) {
+                subMatrix[i][j] = matrix[i][j] - matrixx[i][j];
+                System.out.print(subMatrix[i][j] + " ");
+            }
+        }
+        System.out.println();
+        return subMatrix;
+    }
+
+    public int[][] multiplicationOfMatrix(int[][] matrixx) {
+        int a = matrix.length;
+        int с = matrixx[0].length;
+        int d = matrixx.length;
+        int[][] res = new int[a][с];
+        for (int i = 0; i < a; i++) {
+            //System.out.println();
+            for (int j = 0; j < с; j++) {
+                for (int k =0; k<d; k++){
+                res [i][j] +=matrix [i][k]*matrixx[k][j];
+                //System.out.print(res[i][j] + " ");
+                }
+            }
+        }
+        for (int i = 0; i < res.length; i++) {
+            System.out.println();
+            for (int j = 0; j < res[0].length; j++) {
+                System.out.print(res[i][j] + " ");
+            }
+         }
+        System.out.println();
+        return res;
     }
 }
