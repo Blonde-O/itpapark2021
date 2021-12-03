@@ -11,10 +11,17 @@ public final class Car extends Automobile {
     public void move(int distance) {
         super.move(distance);
         counter += 1;
-        if (distance <= range) {
+        if (distance == range) {
             System.out.println("Легковой автомобиль №" + counter + " проехал " + distance + " км.");
             return;
         }
-        System.out.println("Легковой автомобиль №" + counter + " проехал только " + this.range + " км.");
+        if (distance < range) {
+            System.out.println("Легковой автомобиль №" + counter + " проехал " + distance + " км.\t Вы можете проехать еще "
+                    + (range - distance) + " км.");
+            return;
+        }
+        String add = String.valueOf(((double) (distance - range) / range) * 100);
+        System.out.println("Легковой автомобиль №" + counter + " проехал только " + this.range + " км. Чтобы проехать еще "
+                + (distance - range) + " км. Вам надо заполнить бак на " + add + "%.");
     }
 }

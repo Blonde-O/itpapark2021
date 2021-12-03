@@ -12,7 +12,7 @@ public final class Truck extends Automobile {
         super.move(distance);
         counter += 1;
         if (distance <= range) {
-            System.out.println("Грузовой автомобиль №" + counter + " проехал " + distance + " км.");
+            System.out.println("Грузовой автомобиль №" + counter + " проехал " + distance + " км.\t Вы можете проехать еще " + (range - distance) + " км.");
             return;
         }
         System.out.println("Грузовой автомобиль №" + counter + " проехал только " + this.range + " км.");
