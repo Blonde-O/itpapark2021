@@ -1,4 +1,4 @@
-package lesson9;
+package lesson9.sources;
 
 public final class Car extends Automobile {
     private static int counter = 0;

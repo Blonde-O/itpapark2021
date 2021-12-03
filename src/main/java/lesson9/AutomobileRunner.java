@@ -1,5 +1,9 @@
 package lesson9;
 
+import lesson9.sources.Automobile;
+import lesson9.sources.Car;
+import lesson9.sources.Truck;
+
 public class AutomobileRunner {
 
     public static void main(String[] args) {

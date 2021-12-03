@@ -1,4 +1,4 @@
-package lesson9;
+package lesson9.sources;
 
 public final class Truck extends Automobile {
     private int range;

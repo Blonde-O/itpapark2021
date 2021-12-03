@@ -1,4 +1,4 @@
-package lesson9;
+package lesson9.sources;
 
 public abstract class Automobile {
 
@@ -8,7 +8,7 @@ public abstract class Automobile {
         this.distance = distance;
     }
 
-    protected void move (int distance){
+    public void move (int distance){
 
     }
 }
