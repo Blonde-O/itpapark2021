@@ -1,4 +1,4 @@
-package lesson10;
+package lesson10.secondSolution;
 
 import java.util.Scanner;
 

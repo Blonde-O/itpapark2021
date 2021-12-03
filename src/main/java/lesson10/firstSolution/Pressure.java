@@ -1,4 +1,4 @@
-package lesson10;
+package lesson10.firstSolution;
 
 public enum Pressure {
     BAR {
