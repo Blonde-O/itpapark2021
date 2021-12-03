@@ -1,14 +1,11 @@
 package lesson9.sources;
 
 public abstract class Automobile {
+    int range;
 
-    protected int distance;
-
-    protected Automobile(int distance) {
-        this.distance = distance;
+    protected Automobile() {
     }
 
-    public void move (int distance){
-
+    public void move(int distance) {
     }
 }
