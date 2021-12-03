@@ -4,7 +4,7 @@ public abstract class Automobile {
 
     protected int distance;
 
-    public Automobile(int distance) {
+    protected Automobile(int distance) {
         this.distance = distance;
     }
 
