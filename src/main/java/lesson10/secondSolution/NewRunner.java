@@ -1,4 +1,4 @@
-package lesson10;
+package lesson10.secondSolution;
 
 import java.util.Scanner;
 
@@ -20,26 +20,32 @@ public class NewRunner {
         // String first = "BAR";
        // String second = "PSI";
         if (first.equals("BAR") && second.equals("PSI")) {
+            System.out.print(x+ " " +p1.name()+ " = ");
             x *= convertionArray[p1.ordinal()][p3.ordinal()];
             System.out.printf("%.2f " +p3.name()+ "",  x);
         }
         if (first.equals("BAR") && second.equals("ATM")) {
+            System.out.print(x+ " " +p1.name()+ " = ");
             x *= convertionArray[p1.ordinal()][p2.ordinal()];
             System.out.printf("%.2f " +p2.name()+ "",  x);
         }
         if (first.equals("ATM") && second.equals("PSI")) {
+            System.out.print(x+ " " +p2.name()+ " = ");
             x *= convertionArray[p2.ordinal()][p3.ordinal()];
             System.out.printf("%.2f " +p3.name()+ "",  x);
         }
         if (first.equals("ATM") && second.equals("BAR")) {
+            System.out.print(x+ " " +p2.name()+ " = ");
             x *= convertionArray[p2.ordinal()][p1.ordinal()];
             System.out.printf("%.2f " +p1.name()+ "",  x);
         }
         if (first.equals("PSI") && second.equals("ATM")) {
+            System.out.print(x+ " " +p3.name()+ " = ");
             x *= convertionArray[p3.ordinal()][p2.ordinal()];
             System.out.printf("%.2f " +p2.name()+ "",  x);
         }
         if (first.equals("PSI") && second.equals("BAR")) {
+            System.out.print(x+ " " +p3.name()+ " = ");
             x *= convertionArray[p3.ordinal()][p1.ordinal()];
             System.out.printf("%.2f " +p1.name()+ "",  x);
         }
