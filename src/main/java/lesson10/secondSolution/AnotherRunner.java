@@ -1,6 +1,8 @@
 package lesson10.secondSolution;
+
 import java.util.Arrays;
 import java.util.Scanner;
+
 public class AnotherRunner {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -15,5 +17,4 @@ public class AnotherRunner {
         Convert convertion = new Convert(first, second, x);
         convertion.startConverting();
     }
-
 }

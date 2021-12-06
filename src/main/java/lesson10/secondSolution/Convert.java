@@ -1,10 +1,14 @@
 package lesson10.secondSolution;
 
-public class Convert {
-    private final Double[][] convertionArray = {{1.0, 0.987, 14.504}, {1.013, 1.0, 14.696}, {0.069, 0.068, 1.0}};
+public class Convert implements AnotherConvertable {
+    private final Double[][] convertionArray =
+            {{1.0, 0.987, 14.504, 750.06}, {1.013, 1.0, 14.696, 760.0},
+             {0.069, 0.068, 1.0, 51.715}, {0.00133, 0.00132, 0.019, 1.0}};
     private final PressureSimple p1 = PressureSimple.BAR;
     private final PressureSimple p2 = PressureSimple.ATM;
     private final PressureSimple p3 = PressureSimple.PSI;
+    private final PressureSimple p4 = PressureSimple.TORR;
+
     private final String name1;
     private final String name2;
     private double x;
@@ -16,35 +20,19 @@ public class Convert {
     }
 
     public void startConverting() {
-        if (name1.equals("BAR") && name2.equals("PSI")) {
-            System.out.print(x + " " + p1.name() + " = ");
-            x *= convertionArray[p1.ordinal()][p3.ordinal()];
-            System.out.printf("%.2f " + p3.name() + "", x);
+        PressureSimple[] press = {p1, p2, p3, p4};
+        int a = 0;
+        int b = 0;
+        System.out.printf("%.2f " + name1 + " = ", x);
+        for (PressureSimple steps : press) {
+            if (name1.equals(steps.name())) {
+                a = steps.ordinal();
+            }
+            if (name2.equals(steps.name())) {
+                b = steps.ordinal();
+            }
         }
-        if (name1.equals("BAR") && name2.equals("ATM")) {
-            System.out.print(x + " " + p1.name() + " = ");
-            x *= convertionArray[p1.ordinal()][p2.ordinal()];
-            System.out.printf("%.2f " + p2.name() + "", x);
-        }
-        if (name1.equals("ATM") && name2.equals("PSI")) {
-            System.out.print(x + " " + p2.name() + " = ");
-            x *= convertionArray[p2.ordinal()][p3.ordinal()];
-            System.out.printf("%.2f " + p3.name() + "", x);
-        }
-        if (name1.equals("ATM") && name2.equals("BAR")) {
-            System.out.print(x + " " + p2.name() + " = ");
-            x *= convertionArray[p2.ordinal()][p1.ordinal()];
-            System.out.printf("%.2f " + p1.name() + "", x);
-        }
-        if (name1.equals("PSI") && name2.equals("ATM")) {
-            System.out.print(x + " " + p3.name() + " = ");
-            x *= convertionArray[p3.ordinal()][p2.ordinal()];
-            System.out.printf("%.2f " + p2.name() + "", x);
-        }
-        if (name1.equals("PSI") && name2.equals("BAR")) {
-            System.out.print(x + " " + p3.name() + " = ");
-            x *= convertionArray[p3.ordinal()][p1.ordinal()];
-            System.out.printf("%.2f " + p1.name() + "", x);
-        }
+        x *= convertionArray[a][b];
+        System.out.printf("%.2f " + name2 + " ", x);
     }
 }
