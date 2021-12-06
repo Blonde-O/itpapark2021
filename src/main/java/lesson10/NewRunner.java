@@ -17,7 +17,7 @@ public class NewRunner {
         String second= in.next();
         //double x=100;
         Double[][] convertionArray = {{1.0, 0.987, 14.504}, {1.013, 1.0, 14.696}, {0.069, 0.068, 1.0}};
-        //String first = "BAR";
+        // String first = "BAR";
        // String second = "PSI";
         if (first.equals("BAR") && second.equals("PSI")) {
             x *= convertionArray[p1.ordinal()][p3.ordinal()];
