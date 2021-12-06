@@ -1,6 +1,6 @@
 package lesson10.firstSolution;
 
-public enum Pressure {
+public enum Pressure implements Convertable {
     BAR {
         public void action(double x) {
             System.out.printf("%.2f " + ATM.name() + "; ", x * 0.98692);
@@ -18,9 +18,7 @@ public enum Pressure {
             System.out.printf("%.2f " + ATM.name() + "; ", x * 0.068046);
             System.out.printf("%.2f " + BAR.name() + "\n", x * 0.068948);
         }
-    };
-
-    public abstract void action(double x);
+    }
 }
 
 
