@@ -1,8 +1,8 @@
 package lesson11;
 
 public class Vehicles {
-    public int number;
-    public int speed;
+    protected int number;
+    protected int speed;
     protected int weight;
     protected double height;
 
@@ -69,4 +69,14 @@ public class Vehicles {
         this.length = length;
     }
 
+   public String toString() {
+        return "Vehicles{" +
+                "number=" + number +
+                ", speed=" + speed +
+                ", weight=" + weight +
+                ", height=" + height +
+                ", width=" + width +
+                ", length=" + length +
+                '}';
     }
+}

@@ -1,19 +1,13 @@
 package lesson11;
 
-public class Car extends Vehicles{
-    public Car() {
-    }
+public class Car extends Vehicles {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "number=" + number +
-                ", speed=" + speed +
-                ", weight=" + weight +
-                ", height=" + height +
-                ", width=" + width +
-                ", length=" + length +
-                '}';
+        return super.toString();
+    }
+
+    public Car() {
     }
 
     public Car(int number, int speed, int weight, double height, double width, double length) {
