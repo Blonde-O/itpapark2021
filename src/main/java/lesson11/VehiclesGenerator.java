@@ -5,6 +5,7 @@ public class VehiclesGenerator {
     Vehicles car2 = new Car();
     Vehicles car3 = new Car();
     Vehicles car4 = new Car();
+    Vehicles car5 = new Car();
 
 
     public Vehicles getCar1() {
@@ -32,13 +33,13 @@ public class VehiclesGenerator {
         return vehicles;
     }
 
-    Vehicles car5 = new Car();
+
     Vehicles[] vehicles = new Vehicles[]{car1, car2, car3, car4, car5};
 
         public void generator() {
 
             for (Vehicles steps : vehicles) {
-                steps.setNumber((int) (1000 - Math.random() * 1000));
+                steps.setNumber((int) (99 - Math.random() * 900));
                 steps.setSpeed((int) (Math.random() * 200));
                 steps.setWeight((int) (Math.random() * 8000));
                 steps.setHeight(Math.ceil((1.5 + Math.random() * 3) * Math.pow(10, 2)) / Math.pow(10, 2));
