@@ -42,8 +42,8 @@ public class VehiclesGenerator {
                 steps.setSpeed((int) (Math.random() * 200));
                 steps.setWeight((int) (Math.random() * 8000));
                 steps.setHeight(Math.ceil((1.5 + Math.random() * 3) * Math.pow(10, 2)) / Math.pow(10, 2));
-                steps.setWidth(Math.random() * 1 + 2);
-                steps.setLength(Math.random() * 12);
+                steps.setWidth(Math.ceil((Math.random() * 1 + 2) * Math.pow(10, 2)) / Math.pow(10, 2));
+                steps.setLength(Math.ceil((Math.random() * 12) * Math.pow(10, 2)) / Math.pow(10, 2));
                 System.out.println(steps);
             }
         }
