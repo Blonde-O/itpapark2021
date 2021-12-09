@@ -1,9 +1,9 @@
-package lesson11;
+package lesson11.sources;
 
-public class VehiclesGenerator {
-    Vehicles[] cars;
-    Vehicles[] trucks;
-    Vehicles[] vehicles;
+public class VehiclesGenerator implements Generating {
+    private final Vehicles[] cars;
+    private final Vehicles[] trucks;
+    private final Vehicles[] vehicles;
 
     public VehiclesGenerator() {
         Vehicles car1 = new Car();
@@ -45,28 +45,29 @@ public class VehiclesGenerator {
         return vehicles;
     }
 
-    public void carGenerator() {
+    @Override
+    public void generateCars() {
         for (Vehicles steps : cars) {
             steps.setNumber((int) (99 + Math.random() * 900));
             steps.setSpeed((int) (10 + Math.random() * 150));
-            steps.setWeight((int) (1000 + Math.random() * 2600));
+            steps.setWeight((int) (1 + Math.random() * 2.6));
             steps.setHeight(Math.ceil((1.5 + Math.random() * 2) * Math.pow(10, 2)) / Math.pow(10, 2));
             steps.setWidth(Math.ceil((1.5 + Math.random() * 1.5) * Math.pow(10, 2)) / Math.pow(10, 2));
             steps.setLength(Math.ceil((3 + Math.random() * 3) * Math.pow(10, 2)) / Math.pow(10, 2));
-            //System.out.println(steps);
+            //System.out.println(steps); // Раскоменть увидишь распечатку сгенерированных машин
         }
     }
 
-    public void truckGenerator() {
+    @Override
+    public void generateTrucks() {
         for (Vehicles steps : trucks) {
             steps.setNumber((int) (99 + Math.random() * 900));
             steps.setSpeed((int) (10 + Math.random() * 91));
-            steps.setWeight((int) (3000 + Math.random() * 8000));
+            steps.setWeight((int) (3 + Math.random() * 8));
             steps.setHeight(Math.ceil((3 + Math.random() * 2) * Math.pow(10, 2)) / Math.pow(10, 2));
             steps.setWidth(Math.ceil((2.3 + Math.random()) * Math.pow(10, 2)) / Math.pow(10, 2));
             steps.setLength(Math.ceil((5 + Math.random() * 7) * Math.pow(10, 2)) / Math.pow(10, 2));
-            //System.out.println(steps);
+            //System.out.println(steps); // Раскоменть увидишь распечатку сгенерированных машин
         }
     }
-
 }

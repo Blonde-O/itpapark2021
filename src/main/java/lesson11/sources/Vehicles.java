@@ -1,4 +1,4 @@
-package lesson11;
+package lesson11.sources;
 
 public class Vehicles {
     protected int number;
@@ -10,15 +10,6 @@ public class Vehicles {
     protected double length;
 
     public Vehicles() {
-    }
-
-    protected Vehicles(int number, int speed, int weight, double height, double width, double length) {
-        this.number = number;
-        this.speed = speed;
-        this.weight = weight;
-        this.height = height;
-        this.width = width;
-        this.length = length;
     }
 
     public String getType() {
@@ -65,22 +56,18 @@ public class Vehicles {
         this.width = width;
     }
 
-    public double getLength() {
-        return length;
-    }
-
     public void setLength(double length) {
         this.length = length;
     }
 
     public String toString() {
-        return "Vehicles{" +
-                "number=" + number +
-                ", speed=" + speed +
-                ", weight=" + weight +
-                ", height=" + height +
-                ", width=" + width +
-                ", length=" + length +
-                '}';
+        return "ТС{" +
+                "номер=" + number +
+                ", скорость=" + speed +
+                "км/ч, масса=" + weight +
+                "т, высота=" + height +
+                "м, ширина=" + width +
+                "м, длина=" + length +
+                "м}";
     }
 }

@@ -1,4 +1,4 @@
-package lesson11;
+package lesson11.sources;
 
 public class Car extends Vehicles {
 
@@ -9,11 +9,6 @@ public class Car extends Vehicles {
     }
 
     public Car() {
-    }
-
-    public Car(int number, int speed, int weight, double height, double width, double length) {
-        super(number, speed, weight, height, width, length);
-
     }
 
     @Override

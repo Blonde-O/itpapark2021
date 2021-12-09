@@ -1,14 +1,15 @@
-package lesson11;
+package lesson11.sources;
 
-public class VehiclesChecker {
+public class VehiclesChecker implements Checking {
     private final VehiclesGenerator generation = new VehiclesGenerator();
 
     public VehiclesChecker() {
-        generation.carGenerator();
-        generation.truckGenerator();
+        generation.generateCars();
+        generation.generateTrucks();
     }
 
-    public void startChecking() {
+    @Override
+    public void startCheck() {
         for (Vehicles steps : generation.getVehicles()) {
             String message1 = "";
             String message2 = "";
