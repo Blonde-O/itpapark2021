@@ -5,6 +5,25 @@ public class Vehicles {
     protected int speed;
     protected int weight;
     protected double height;
+    protected String type;
+    protected double width;
+    protected double length;
+
+    public Vehicles() {
+    }
+
+    protected Vehicles(int number, int speed, int weight, double height, double width, double length) {
+        this.number = number;
+        this.speed = speed;
+        this.weight = weight;
+        this.height = height;
+        this.width = width;
+        this.length = length;
+    }
+
+    public String getType() {
+        return type;
+    }
 
     public int getNumber() {
         return number;
@@ -54,22 +73,7 @@ public class Vehicles {
         this.length = length;
     }
 
-    protected double width;
-    protected double length;
-
-    public Vehicles() {
-    }
-
-    protected Vehicles(int number, int speed, int weight, double height, double width, double length) {
-        this.number = number;
-        this.speed = speed;
-        this.weight = weight;
-        this.height = height;
-        this.width = width;
-        this.length = length;
-    }
-
-   public String toString() {
+    public String toString() {
         return "Vehicles{" +
                 "number=" + number +
                 ", speed=" + speed +

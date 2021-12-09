@@ -1,17 +1,17 @@
 package lesson11;
 
-public class Car extends Vehicles {
+public class Truck extends Vehicles {
 
     @Override
     public String getType() {
-        this.type = "Легковой";
+        this.type = "Грузовой";
         return super.getType();
     }
 
-    public Car() {
+    public Truck() {
     }
 
-    public Car(int number, int speed, int weight, double height, double width, double length) {
+    public Truck(int number, int speed, int weight, double height, double width, double length) {
         super(number, speed, weight, height, width, length);
 
     }
