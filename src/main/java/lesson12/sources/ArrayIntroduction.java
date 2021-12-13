@@ -1,7 +1,7 @@
 package lesson12.sources;
 
 public class ArrayIntroduction {
-    private String [][] initialArray;
+    private final String[][] initialArray;
 
     public ArrayIntroduction(String[][] initialArray) {
         this.initialArray = initialArray;
@@ -19,5 +19,18 @@ public class ArrayIntroduction {
             throw new MyArraySizeException("Неправильный размер массива");
         }
 
+    }
+
+    public void summarizeArray() {
+        int a;
+        int result = 0;
+        for (int i = 0; i < initialArray.length; i++) {
+            for (int j = 0; j < 4; j++) {
+                a = Integer.parseInt(initialArray[i][j]);
+                result += a;
+            }
+        }
+        System.out.println();
+        System.out.println(result);
     }
 }

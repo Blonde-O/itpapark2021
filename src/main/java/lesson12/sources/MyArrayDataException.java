@@ -6,6 +6,11 @@ public class MyArrayDataException extends RuntimeException{
     }
 
     @Override
+    public synchronized Throwable getCause() {
+        return super.getCause();
+    }
+
+    @Override
     public String getMessage() {
         return super.getMessage();
     }

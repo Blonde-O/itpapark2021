@@ -14,5 +14,6 @@ public class Runner {
         catch(MyArraySizeException e){
             System.out.println(e.getMessage());
         }
+        probe.summarizeArray();
     }
 }
