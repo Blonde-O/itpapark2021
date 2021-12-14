@@ -10,6 +10,16 @@ public class ArrayIntroduction {
         this.initialArray = initialArray;
     }
 
+    private void justPrint() {
+        System.out.print("Распечатка вашего массива");
+        for (String[] strings : initialArray) {
+            System.out.println();
+            for (String string : strings) {
+                System.out.print(string + " ");
+            }
+        }
+    }
+
     public void printArray() {
         if (!(initialArray.length == 4)) {
             throw new MyArraySizeException("Неправильный размер массива. Некорректное кол-во строк");
@@ -21,13 +31,7 @@ public class ArrayIntroduction {
                 }
             }
         }
-        System.out.print("Распечатка вашего массива");
-        for (String[] strings : initialArray) {
-            System.out.println();
-            for (String string : strings) {
-                System.out.print(string + " ");
-            }
-        }
+        justPrint();
     }
 
     public void summarizeArray() {
