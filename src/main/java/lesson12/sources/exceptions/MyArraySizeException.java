@@ -1,4 +1,4 @@
-package lesson12.sources;
+package lesson12.sources.exceptions;
 
 public class MyArraySizeException extends RuntimeException {
 
