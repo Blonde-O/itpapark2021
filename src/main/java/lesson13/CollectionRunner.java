@@ -12,41 +12,42 @@ public class CollectionRunner {
         System.out.println("Введите интресующий Вас стаж для поиска работников");
 
         List<Employee> listOfEmployees = new LinkedList<>();
-        listOfEmployees.add(new Employee("ДРА", 101, 5));
-        listOfEmployees.add(new Employee("ДЮК", 102, 12));
-        listOfEmployees.add(new Employee("КУБ", 103, 1));
-        listOfEmployees.add(new Employee("ФУХ", 104, 3));
-        listOfEmployees.add(new Employee("ЖУК", 105, 5));
-        listOfEmployees.add(new Employee("ЖУЕ", 106, 6));
-        listOfEmployees.add(new Employee("ЖАК", 107, 10));
-        listOfEmployees.add(new Employee("ЗНЕ", 108, 10));
-        listOfEmployees.add(new Employee("ХАУ", 109, 9));
-        listOfEmployees.add(new Employee("ТОР", 110, 5));
-        listOfEmployees.add(new Employee("ДРА", 111, 30));
-        listOfEmployees.add(new Employee("ЦУМ", 112, 12));
-        listOfEmployees.add(new Employee("ЖИВ", 113, 1));
-        listOfEmployees.add(new Employee("БОК", 114, 19));
-        listOfEmployees.add(new Employee("ВАХ", 115, 0));
-        listOfEmployees.add(new Employee("ТОП", 116, 23));
-        listOfEmployees.add(new Employee("ПОТ", 117, 10));
-        listOfEmployees.add(new Employee("КАК", 118, 10));
-        listOfEmployees.add(new Employee("ВОР", 119, 8));
-        listOfEmployees.add(new Employee("БИМ", 120, 5));
-        listOfEmployees.add(new Employee("ЗУБ", 121, 4));
+        listOfEmployees.add(new Employee("ДРА", 100, 5));
+        listOfEmployees.add(new Employee("ДЮК", 101, 12));
+        listOfEmployees.add(new Employee("КУБ", 102, 1));
+        listOfEmployees.add(new Employee("ФУХ", 103, 3));
+        listOfEmployees.add(new Employee("ЖУК", 104, 5));
+        listOfEmployees.add(new Employee("ЖУЕ", 105, 6));
+        listOfEmployees.add(new Employee("ЖАК", 106, 10));
+        listOfEmployees.add(new Employee("ЗНЕ", 107, 10));
+        listOfEmployees.add(new Employee("ХАУ", 108, 9));
+        listOfEmployees.add(new Employee("ТОР", 109, 5));
+        listOfEmployees.add(new Employee("ДРА", 110, 30));
+        listOfEmployees.add(new Employee("ЦУМ", 111, 12));
+        listOfEmployees.add(new Employee("ЖИВ", 112, 1));
+        listOfEmployees.add(new Employee("БОК", 113, 19));
+        listOfEmployees.add(new Employee("ВАХ", 114, 0));
+        listOfEmployees.add(new Employee("ТОП", 115, 23));
+        listOfEmployees.add(new Employee("ПОТ", 116, 10));
+        listOfEmployees.add(new Employee("КАК", 117, 10));
+        listOfEmployees.add(new Employee("ВОР", 118, 8));
+        listOfEmployees.add(new Employee("БИМ", 119, 5));
+        listOfEmployees.add(new Employee("ЗУБ", 120, 4));
+        listOfEmployees.add(new Employee("КОП", 121, 2));
 
-        Actions firstTry = new Actions();
+        Actions firstTry = new Actions(listOfEmployees);
 
         try {
             int workAge = in.nextInt();
             if (workAge < 0) {
-                throw new IllegalArgumentException("Неккоретный ввод. Введено отричательное число.");
+                throw new IllegalArgumentException("Неккоретный ввод стажа. Введено отричательное число.");
             }
-            firstTry.findWorkAge(workAge, listOfEmployees);
-            firstTry.deleteOddElements(listOfEmployees);
+            firstTry.findWorkAge(workAge);
         } catch (InputMismatchException e) {
-            System.out.println("Неккоретный ввод. Число не введено.");
+            System.out.println("Неккоретный ввод стажа. Число не введено.");
         } catch (IllegalArgumentException f) {
             System.out.println(f.getMessage());
         }
+        firstTry.deleteOddElements();
     }
 }

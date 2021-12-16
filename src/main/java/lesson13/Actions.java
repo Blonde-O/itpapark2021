@@ -4,11 +4,17 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class Actions {
+    private List list;
+    private ListIterator<Employee> iterator;
 
-    public void findWorkAge(int m, List list) {
+    public Actions(List list) {
+        this.list = list;
+        this.iterator = list.listIterator();
+    }
+
+    public void findWorkAge(int m) {
         int a = 0;
         System.out.println("Список ФИО работников, которые имеют стаж работы " + m + " лет.");
-        ListIterator<Employee> iterator = list.listIterator();
         while (iterator.hasNext()) {
             Employee value = iterator.next();
             if (value.getWorkAge() == m) {
@@ -19,19 +25,19 @@ public class Actions {
         if (a == 0) {
             System.out.println("Сотрудников с таким стажем не обнаружено");
         }
-        System.out.println("-------------------------");
     }
 
-    public void deleteOddElements(List list) {
+    public void deleteOddElements() {
+        System.out.println("-------------------------");
         System.out.println("Произвели удаление нечетных сотрудников. Новый список имеет вид:");
-        ListIterator<Employee> interator = list.listIterator(list.size());
-        while (interator.hasPrevious()) {
-            if ((list.indexOf(interator.previous()) % 2) != 0) {
-                interator.remove();
+        iterator = list.listIterator(list.size());
+        while (iterator.hasPrevious()) {
+            if ((list.indexOf(iterator.previous()) % 2) != 0) {
+                iterator.remove();
             }
         }
-        while (interator.hasNext()) {
-            Employee value = interator.next();
+        while (iterator.hasNext()) {
+            Employee value = iterator.next();
             System.out.println(value);
         }
     }
