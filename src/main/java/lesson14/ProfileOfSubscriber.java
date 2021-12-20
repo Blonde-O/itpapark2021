@@ -11,7 +11,7 @@ public class ProfileOfSubscriber {
     private final long phone;
     private Set<Long> linkedSubscribers = new HashSet<Long>();
     static int leftLimit = 1040; // letter 'a'
-    static int rightLimit = 1103; // letter 'z'
+    static int rightLimit = 1064; // letter 'z'
     static int targetStringLength = 3;
     static Random random = new Random();
 
