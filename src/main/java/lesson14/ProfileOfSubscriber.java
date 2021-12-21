@@ -54,7 +54,7 @@ public class ProfileOfSubscriber {
             String generatedString = random.ints(leftLimit, rightLimit + 1).limit(targetStringLength)
                     .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                     .toString();
-            long number = (random.nextInt(100000))+99000;
+            long number = (random.nextInt(99999998))+9040000001L;
             ProfileOfSubscriber subscriber = new ProfileOfSubscriber(generatedString, number);
         return subscriber;
     }

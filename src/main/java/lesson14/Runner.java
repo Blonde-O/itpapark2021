@@ -1,8 +1,6 @@
 package lesson14;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Runner {
     public static void main(String[] args) {
@@ -13,14 +11,15 @@ public class Runner {
         long number;
         Random random = new Random();
         List<ProfileOfSubscriber> subscriberList = new ArrayList<>();
-        for (int i = 0; i < 50; i++) {
+        List <Long> boundedContacts = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
             subscriberList.add(ProfileOfSubscriber.generateSubscriber());
 
         }
         //System.out.println(subscriberList);
 
         for (ProfileOfSubscriber subscriber: subscriberList){
-            int a = random.nextInt(10);
+            int a = random.nextInt(90);
             for (int i=0; i<a; i++){
                 ProfileOfSubscriber randomSubscriber= subscriberList.get(random.nextInt(subscriberList.size()));
 
@@ -28,16 +27,39 @@ public class Runner {
 
 
             }
-            System.out.println(subscriber.getLinkedSubscribers());
+            //System.out.println(subscriber.getLinkedSubscribers());
+            boundedContacts.addAll(subscriber.getLinkedSubscribers());
         }
-       // System.out.println(subscriberList);
+/*        System.out.println("_____________");
+        System.out.println(boundedContacts);
+        System.out.println("_____________");
+  */      // System.out.println(subscriberList);
+        Set<Long> unique = new HashSet<>(boundedContacts);
+        long b=1;
+        for(Long x: unique){
+            if(Collections.frequency(boundedContacts, x)>b){
+                b=Collections.frequency(boundedContacts, x);}
+               // System.out.println("Число " + x + ": " +Collections.frequency(boundedContacts, x));
+
+
+
+        }
+        System.out.println(b);
+        for(Long x: unique){
+
+            if(Collections.frequency(boundedContacts, x)==b){
+                System.out.println("Наиболее популярный номер +7" + x + " повторяется " +Collections.frequency(boundedContacts, x)+ " раз");
+            }
+
+
+        }
+
 
 
 
 
 
        /* private static ProfileOfSubscriber generateSubscriber () {
-
             generatedString = random.ints(leftLimit, rightLimit + 1).limit(targetStringLength)
                     .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                     .toString();
@@ -46,4 +68,3 @@ public class Runner {
         }*/
     }
 }
-
