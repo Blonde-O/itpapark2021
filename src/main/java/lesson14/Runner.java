@@ -13,14 +13,14 @@ public class Runner {
         Random random = new Random();
         List<ProfileOfSubscriber> subscriberList = new ArrayList<>();
         List <Long> boundedContacts = new ArrayList<>();
-        for (int i = 0; i < 3000; i++) {
+        for (int i = 0; i < 300; i++) {
             subscriberList.add(ProfileOfSubscriber.generateSubscriber());
 
         }
         //System.out.println(subscriberList);
 
         for (ProfileOfSubscriber subscriber: subscriberList){
-            int a = random.nextInt(500);
+            int a = random.nextInt(200);
             for (int i=0; i<a; i++){
                 ProfileOfSubscriber randomSubscriber= subscriberList.get(random.nextInt(subscriberList.size()));
 
@@ -35,12 +35,12 @@ public class Runner {
         System.out.println(boundedContacts);
         System.out.println("_____________");
   */      // System.out.println(subscriberList);
-        Set<Long> unique = new HashSet<>(boundedContacts);
+        Set<Long> unique = new TreeSet<>(boundedContacts);
         long b=1;
         for(Long x: unique){
             if(Collections.frequency(boundedContacts, x)>=b){
                 b=Collections.frequency(boundedContacts, x);}
-               // System.out.println("Число " + x + ": " +Collections.frequency(boundedContacts, x));
+            // System.out.println("Число " + x + ": " +Collections.frequency(boundedContacts, x));
 
 
 
@@ -52,16 +52,25 @@ public class Runner {
             if(Collections.frequency(boundedContacts, x)==b){
                 System.out.println("Наиболее популярный номер +7" + x + " повторяется " +Collections.frequency(boundedContacts, x)+ " раз");
                 f=x;
+                break;
+
+           /* for (ProfileOfSubscriber subscriber: subscriberList) {
+                if (subscriber.getPhone() == f) {
+                    System.out.println("Он принадлежит абоненту " + subscriber.getFio());
+                }
+            }*/
+
+
             }
         }
         //System.out.println(f);
-        for (ProfileOfSubscriber subscriber: subscriberList){
+         for (ProfileOfSubscriber subscriber: subscriberList){
             if (subscriber.getPhone()==f){
                 System.out.println("Он принадлежит абоненту " + subscriber.getFio());
             }
 
 
-            }
+        }
 
 
 
