@@ -38,7 +38,7 @@ public class Runner {
         Set<Long> unique = new HashSet<>(boundedContacts);
         long b=1;
         for(Long x: unique){
-            if(Collections.frequency(boundedContacts, x)>b){
+            if(Collections.frequency(boundedContacts, x)>=b){
                 b=Collections.frequency(boundedContacts, x);}
                // System.out.println("Число " + x + ": " +Collections.frequency(boundedContacts, x));
 
@@ -46,14 +46,23 @@ public class Runner {
 
         }
         //System.out.println(b);
+        long f=0;
         for(Long x: unique){
 
             if(Collections.frequency(boundedContacts, x)==b){
                 System.out.println("Наиболее популярный номер +7" + x + " повторяется " +Collections.frequency(boundedContacts, x)+ " раз");
+                f=x;
+            }
+        }
+        //System.out.println(f);
+        for (ProfileOfSubscriber subscriber: subscriberList){
+            if (subscriber.getPhone()==f){
+                System.out.println("Он принадлежит абоненту " + subscriber.getFio());
             }
 
 
-        }
+            }
+
 
 
 
