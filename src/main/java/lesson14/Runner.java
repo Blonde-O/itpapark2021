@@ -9,17 +9,18 @@ public class Runner {
         int targetStringLength = 3;
         String generatedString;
         long number;
+        long startTime = System.currentTimeMillis();
         Random random = new Random();
         List<ProfileOfSubscriber> subscriberList = new ArrayList<>();
         List <Long> boundedContacts = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 3000; i++) {
             subscriberList.add(ProfileOfSubscriber.generateSubscriber());
 
         }
         //System.out.println(subscriberList);
 
         for (ProfileOfSubscriber subscriber: subscriberList){
-            int a = random.nextInt(90);
+            int a = random.nextInt(500);
             for (int i=0; i<a; i++){
                 ProfileOfSubscriber randomSubscriber= subscriberList.get(random.nextInt(subscriberList.size()));
 
@@ -44,7 +45,7 @@ public class Runner {
 
 
         }
-        System.out.println(b);
+        //System.out.println(b);
         for(Long x: unique){
 
             if(Collections.frequency(boundedContacts, x)==b){
@@ -66,5 +67,7 @@ public class Runner {
             number = random.nextLong();
             ProfileOfSubscriber subscriber = new ProfileOfSubscriber(generatedString, number);
         }*/
+        double time = (double)(System.currentTimeMillis() - startTime)/1000;
+        System.out.println("Время выполнения программы " +time+ " секунд.");
     }
 }
