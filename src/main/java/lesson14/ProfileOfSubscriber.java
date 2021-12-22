@@ -7,25 +7,31 @@ import java.util.Set;
 
 public class ProfileOfSubscriber {
 
-    private final String fio;
-    private final long phone;
-    private Set<Long> linkedSubscribers = new HashSet<Long>();
     static int leftLimit = 1040; // letter 'a'
     static int rightLimit = 1064; // letter 'z'
     static int targetStringLength = 3;
     static Random random = new Random();
+    private final String fio;
+    private final long phone;
+    private final Set<Long> linkedSubscribers = new HashSet<Long>();
 
     public ProfileOfSubscriber(String fio, long phone) {
         this.fio = fio;
         this.phone = phone;
     }
 
-    public String getFio() {
-        return fio;
+    public static ProfileOfSubscriber generateSubscriber() {
+
+        String generatedString = random.ints(leftLimit, rightLimit + 1).limit(targetStringLength)
+                .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
+                .toString();
+        long number = (random.nextInt(99999998)) + 9040000001L;
+        ProfileOfSubscriber subscriber = new ProfileOfSubscriber(generatedString, number);
+        return subscriber;
     }
 
-    public void setLinkedSubscribers(long phone) {
-        linkedSubscribers.add(phone);
+    public String getFio() {
+        return fio;
     }
 
     public long getPhone() {
@@ -34,6 +40,10 @@ public class ProfileOfSubscriber {
 
     public Set<Long> getLinkedSubscribers() {
         return linkedSubscribers;
+    }
+
+    public void setLinkedSubscribers(long phone) {
+        linkedSubscribers.add(phone);
     }
 
     @Override
@@ -47,16 +57,6 @@ public class ProfileOfSubscriber {
     @Override
     public int hashCode() {
         return Objects.hash(fio, phone);
-    }
-
-    public static ProfileOfSubscriber generateSubscriber() {
-
-            String generatedString = random.ints(leftLimit, rightLimit + 1).limit(targetStringLength)
-                    .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-                    .toString();
-            long number = (random.nextInt(100000))+99000;
-            ProfileOfSubscriber subscriber = new ProfileOfSubscriber(generatedString, number);
-        return subscriber;
     }
 
     @Override

@@ -1,6 +1,6 @@
 package lesson11.sources;
 
-public class Vehicles {
+public class Vehicles implements Checking, Generating {
     protected int number;
     protected int speed;
     protected int weight;
@@ -69,5 +69,20 @@ public class Vehicles {
                 "м, ширина=" + width +
                 "м, длина=" + length +
                 "м}";
+    }
+
+    @Override
+    public void startCheck() {
+
+    }
+
+    @Override
+    public void generateCars() {
+
+    }
+
+    @Override
+    public void generateTrucks() {
+
     }
 }
