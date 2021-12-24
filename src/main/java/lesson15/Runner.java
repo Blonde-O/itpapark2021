@@ -28,4 +28,3 @@ public class Runner {
                 .forEach(System.out::println);
     }
 }
-
