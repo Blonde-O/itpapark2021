@@ -1,17 +1,17 @@
 package lesson15;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Runner {
 
     public static void main(String[] args) {
-        String text = "Lorem Sed ipsum dolor sit Sed? amet, consectetur  1 adipiscing elit. Sed 1";
-        System.out.println(text);
-
+        String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sodales consectetur purus at " +
+                "faucibus. Donec mi quam, tempor vel ipsum non, faucibus suscipit massa. Morbi lacinia velit blandit " +
+                "tincidunt efficitur. Vestibulum eget metus imperdiet sapien laoreet faucibus. Nunc eget vehicula " +
+                "mauris, ac auctor lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel odio " +
+                "nec mi tempor dignissim.";
+        // System.out.println(text);
 
 
         String[] splittedText = text.split("\\p{Punct}");
@@ -30,14 +30,25 @@ public class Runner {
        /*for (String words : clearText) {
             System.out.println(words);
         }*/
-        List<String> listOfText;
-        listOfText = Arrays.asList(clearText);
+        HashMap<String, Integer> finalOrder = new HashMap<>();
+        for (String i : clearText) {
+            Integer value = finalOrder.get(i);
+            if (value == null) {
+                finalOrder.put(i, 1);
+            } else {
+                finalOrder.put(i, ++value);
+            }
+        }
 
-        Stream<String> stream = listOfText.stream();
-        List<Object> resultedList = stream
-                .filter((x)-> Objects.equals(x, "1")).collect(Collectors.toList());
-        System.out.println(resultedList);
+        finalOrder.entrySet().stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                .map(Map.Entry::getKey)
+                .forEach(System.out::println);
+
+
 
     }
+
+
 }
 
