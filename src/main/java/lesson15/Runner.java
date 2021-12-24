@@ -11,17 +11,18 @@ public class Runner {
                 "tincidunt efficitur. Vestibulum eget metus imperdiet sapien laoreet faucibus. Nunc eget vehicula " +
                 "mauris, ac auctor lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel odio " +
                 "nec mi tempor dignissim.";
+
         String[] splittedText = text.split("\\s*(\\W|\\s)\\s*");
-        HashMap<String, Integer> finalOrder = new HashMap<>();
+        HashMap<String, Integer> sortedSplittedText = new HashMap<>();
         for (String i : splittedText) {
-            Integer value = finalOrder.get(i);
+            Integer value = sortedSplittedText.get(i);
             if (value == null) {
-                finalOrder.put(i, 1);
+                sortedSplittedText.put(i, 1);
             } else {
-                finalOrder.put(i, ++value);
+                sortedSplittedText.put(i, ++value);
             }
         }
-        finalOrder.entrySet().stream()
+        sortedSplittedText.entrySet().stream()
                 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
                 .map(Map.Entry::getKey)
                 .forEach(System.out::println);
