@@ -16,10 +16,11 @@ public class Logger<M, S> {
         this.status = status;
     }
 
-    public void writeToFile(String name) throws IOException {
-        try (FileWriter writer = new FileWriter("log2414.txt", true)) {
+    public void writeToFile(String level, String name) throws IOException {
+        try (FileWriter writer = new FileWriter("log2912.txt", true)) {
             Date date = new Date();
-            writer.write(date + "\t " + this.status + "\t " + name+ "\t" +this.message+ "\n");
+            writer.append('\n');
+            writer.write("\n" +date + "\t " + level + "\t " + this.status + "\t " + name+ "\t" +this.message+ "\n");
             writer.append('\t');
             writer.flush();
         } catch (IOException e) {
