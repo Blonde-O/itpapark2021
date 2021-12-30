@@ -3,7 +3,7 @@ package lesson16;
 import java.io.IOException;
 import java.util.Random;
 
-public class SecondThread extends Thread {
+public class Thirdthread extends Thread {
     private final Logger myLog;
     private final int leftLimit = 0065; // letter 'A'
     private final int rightLimit = 0122; // letter 'z'
@@ -11,7 +11,7 @@ public class SecondThread extends Thread {
     Random random = new Random();
     private String level;
 
-    public SecondThread(Logger myLog, String name) {
+    public Thirdthread(Logger myLog, String name) {
         super(name);
         this.myLog = myLog;
 
@@ -20,7 +20,7 @@ public class SecondThread extends Thread {
     public void run() {
 
             while (!isInterrupted()) {
-                Thread.State ts;
+                State ts;
                 ts = this.getState();
                 String generatedString = random.ints(leftLimit, rightLimit + 1).limit(targetStringLength)
                         .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)

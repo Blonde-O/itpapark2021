@@ -8,16 +8,24 @@ public class LogRunner {
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
         Logger log = new Logger();
         FirstThread firstThread = new FirstThread(log, "FirstThread");
-        FirstThread secondThread = new FirstThread(log, "SecondThread");
-        FirstThread thirdThread = new FirstThread(log, "ThirdThread");
+        SecondThread secondThread = new SecondThread(log, "SecondThread");
+        Thirdthread thirdThread= new Thirdthread(log, "ThirdThread");
         firstThread.start();
-        firstThread.join();
         secondThread.start();
-        secondThread.join();
         thirdThread.start();
+        try{
+            Thread.currentThread().sleep(60_000);
+            firstThread.interrupt();
+            secondThread.interrupt();
+            thirdThread.interrupt();
 
+        }
+        catch(InterruptedException e){
+            System.out.println("Thread has been interrupted");
+            Thread.currentThread().interrupt();
+        }
 
-        /*try(FileInputStream fin=new FileInputStream("C:/Users/blond/IdeaProjects/log2414.txt"))
+        try(FileInputStream fin=new FileInputStream("C:\\Users\\user\\IdeaProjects\\itpapark2021\\log2912.txt"))
         {
             System.out.printf("File size: %d bytes \n", fin.available());
 
@@ -26,10 +34,12 @@ public class LogRunner {
 
                 System.out.print((char)i);
             }
+
         }
         catch(IOException ex){
 
             System.out.println(ex.getMessage());
-        }*/
+        }
+
     }
 }
