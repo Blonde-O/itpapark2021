@@ -1,12 +1,16 @@
 package lesson16;
 
+import lesson16.Threads.FirstThread;
+import lesson16.Threads.SecondThread;
+import lesson16.Threads.Thirdthread;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class LogRunner {
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
-        Logger log = new Logger();
+        ForLogger log = new ForLogger();
         FirstThread firstThread = new FirstThread(log, "FirstThread");
         SecondThread secondThread = new SecondThread(log, "SecondThread");
         Thirdthread thirdThread= new Thirdthread(log, "ThirdThread");
@@ -25,7 +29,7 @@ public class LogRunner {
             Thread.currentThread().interrupt();
         }
 
-        try(FileInputStream fin=new FileInputStream("C:\\Users\\user\\IdeaProjects\\itpapark2021\\log2912.txt"))
+        try(FileInputStream fin=new FileInputStream("C:\\Users\\user\\IdeaProjects\\itpapark2021\\src\\main\\java\\lesson16\\logs\\log2912.txt"))
         {
             System.out.printf("File size: %d bytes \n", fin.available());
 
