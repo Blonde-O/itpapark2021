@@ -20,26 +20,6 @@
             <version>1.18.22</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven-plugin -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok-maven-plugin</artifactId>
-            <version>1.18.20.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-maven -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok-maven</artifactId>
-            <version>1.18.20.0</version>
-            <type>pom</type>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok-utils -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok-utils</artifactId>
-            <version>1.18.12</version>
-        </dependency>
-
     </dependencies>
+
 </project>
