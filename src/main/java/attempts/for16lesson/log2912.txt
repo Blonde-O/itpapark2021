@@ -1,0 +1,4 @@
+дек. 29, 2021 4:46:20 PM attempts.for16lesson.ForLogger writeMessage
+INFO: Залупачес
+дек. 29, 2021 4:50:42 PM attempts.for16lesson.ForLogger writeMessage
+INFO: пздц задачка
