@@ -8,6 +8,6 @@ import lombok.*;
 @ToString
 public class ClassProbe {
     private final String name;
-    private final int age;
+    private int age;
     private Gender sex;
 }
