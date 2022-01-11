@@ -1,13 +1,15 @@
 package lesson18;
 
+import lombok.SneakyThrows;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 
 public class LineSaver {
 
-    public static void main(String[] args) throws IOException {
+    @SneakyThrows
+    public static void main(String[] args) {
         try (BufferedReader br = new BufferedReader(
                 new FileReader("C:\\test\\InitialText.txt"))) {
             String line;
