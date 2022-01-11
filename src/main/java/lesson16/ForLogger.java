@@ -31,7 +31,6 @@ public class ForLogger {
     }
 
     public void writeMessage() {
-
         FileHandler fh = null;
         try {
             fh = new FileHandler("C:\\Users\\user\\IdeaProjects\\itpapark2021\\src\\main\\java\\lesson16\\logs\\log2912.txt");
@@ -41,12 +40,9 @@ public class ForLogger {
         log.addHandler(fh);
         try {
             log.log(Level.parse(level), this.message);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             log.log(Level.parse(level), this.message, e);
         }
 
     }
-
-
 }
