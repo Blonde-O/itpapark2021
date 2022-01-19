@@ -5,6 +5,7 @@ import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import lombok.SneakyThrows;
 
+import java.io.FileWriter;
 import java.io.StringWriter;
 
 public class JaxBRunner {
@@ -22,8 +23,11 @@ public class JaxBRunner {
 
         //создание объекта Marshaller, который выполняет сериализацию
         xmlWriter(employee);
+
+
     }
 
+    @SneakyThrows
     private static void xmlWriter(Employee employee) throws JAXBException {
         StringWriter writer = new StringWriter();
         JAXBContext context = JAXBContext.newInstance(Employee.class);
@@ -34,6 +38,9 @@ public class JaxBRunner {
 
         //преобразовываем в строку все записанное в StringWriter
         String result = writer.toString();
+        FileWriter fw = new FileWriter("C:\\test\\employee.xml", false);
+        fw.write(result);
+        fw.flush();
         System.out.println(result);
     }
 }
