@@ -45,7 +45,7 @@ public class XPathRunner {
         List<String> list = new ArrayList<>();
                     // получаем список всех узлов, которые отвечают условию
             XPathExpression xPathExpression = xpath.compile(
-                    "//employee/postAndSalary[salary>" + avgSalary + "]/position/text()"
+                    "//employee/postAndSalary[salary>" + avgSalary + "]/salary/text()"
             );
             NodeList nodeList = (NodeList) xPathExpression.evaluate(doc, XPathConstants.NODESET);
             for (int i = 0; i < nodeList.getLength(); i++){
