@@ -6,7 +6,6 @@ import lombok.Data;
 
 @Data
 @XmlType(propOrder = {"tabel", "login", "fio", "city", "postAndSalary"})
-@XmlRootElement
 
 public class Employee {
 
