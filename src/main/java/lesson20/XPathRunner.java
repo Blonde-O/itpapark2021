@@ -28,8 +28,8 @@ public class XPathRunner {
             double avg = (Double) xPath.compile("sum(//employee/postAndSalary/salary) div count(//employee/postAndSalary/salary)")
                     .evaluate(xmlDocument, XPathConstants.NUMBER);
             System.out.println("Среднее значение заработной платы: " + avg);
-            List<String> names = getDevelopersWithSalary(xmlDocument, xPath,49000);
-            System.out.println("Работники с зп больше средней" + names);
+            List<String> names = getDevelopersWithSalary(xmlDocument, xPath,avg);
+            System.out.println("ФИО работников с зп выше средней" + names);
 
         }
     }
@@ -41,11 +41,12 @@ public class XPathRunner {
     }
 //https://javadevblog.com/primer-raboty-s-xpath-v-java-poisk-v-xml-i-vy-borka-danny-h.html
     @SneakyThrows
-    private static List<String> getDevelopersWithSalary(Document doc, XPath xpath, int avgSalary) {
+    private static List<String> getDevelopersWithSalary(Document doc, XPath xpath, double avgSalary) {
         List<String> list = new ArrayList<>();
                     // получаем список всех узлов, которые отвечают условию
+        //https://howtodoinjava.com/java/xml/java-xpath-expression-examples/
             XPathExpression xPathExpression = xpath.compile(
-                    "//employee/postAndSalary[salary>" + avgSalary + "]/salary/text()"
+                    "//employee[postAndSalary/salary>" + avgSalary + "]/fio/text()"
             );
             NodeList nodeList = (NodeList) xPathExpression.evaluate(doc, XPathConstants.NODESET);
             for (int i = 0; i < nodeList.getLength(); i++){
