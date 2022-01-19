@@ -8,11 +8,11 @@ import lombok.Data;
 
 import java.util.List;
 @Data
-@XmlRootElement (name = "Реестр_работников")
+@XmlRootElement (name = "Employees")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class EmployeeWrapper {
 
-    @XmlElement(name ="работник")
+    @XmlElement(name ="employee")
     private List<Employee> employees;
 
 

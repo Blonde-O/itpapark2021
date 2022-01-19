@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Реестр_работников>
-    <работник>
+<Employees>
+    <employee>
         <tabel>100</tabel>
         <login>doro</login>
         <fio>DRA</fio>
@@ -11,8 +11,8 @@
             <position>engineer</position>
             <salary>50000</salary>
         </postAndSalary>
-    </работник>
-    <работник>
+    </employee>
+    <employee>
         <tabel>101</tabel>
         <login>fade</login>
         <fio>FEA</fio>
@@ -23,8 +23,8 @@
             <position>leading engineer</position>
             <salary>200000</salary>
         </postAndSalary>
-    </работник>
-    <работник>
+    </employee>
+    <employee>
         <tabel>102</tabel>
         <login>boei</login>
         <fio>BOI</fio>
@@ -35,5 +35,5 @@
             <position>assistant</position>
             <salary>40000</salary>
         </postAndSalary>
-    </работник>
-</Реестр_работников>
+    </employee>
+</Employees>

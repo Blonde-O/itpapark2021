@@ -6,7 +6,7 @@ import lombok.*;
 @Setter
 @Getter
 @ToString
-public class ClassProbe {
+public  class ClassProbe {
     private final String name;
     private int age;
     private Gender sex;
