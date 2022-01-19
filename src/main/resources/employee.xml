@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Реестр_работников>
+    <работник>
+        <tabel>100</tabel>
+        <login>doro</login>
+        <fio>DRA</fio>
+        <city>
+            <city>Nizhny Novgorod</city>
+        </city>
+        <postAndSalary>
+            <position>engineer</position>
+            <salary>50000</salary>
+        </postAndSalary>
+    </работник>
+    <работник>
+        <tabel>101</tabel>
+        <login>fade</login>
+        <fio>FEA</fio>
+        <city>
+            <city>Innopolis</city>
+        </city>
+        <postAndSalary>
+            <position>leading engineer</position>
+            <salary>200000</salary>
+        </postAndSalary>
+    </работник>
+    <работник>
+        <tabel>102</tabel>
+        <login>boei</login>
+        <fio>BOI</fio>
+        <city>
+            <city>St.Petersburg</city>
+        </city>
+        <postAndSalary>
+            <position>assistant</position>
+            <salary>40000</salary>
+        </postAndSalary>
+    </работник>
+</Реестр_работников>
