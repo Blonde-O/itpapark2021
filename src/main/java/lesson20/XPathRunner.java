@@ -37,12 +37,9 @@ public class XPathRunner {
         return builder.parse(inputStream);
     }
 
-    //https://javadevblog.com/primer-raboty-s-xpath-v-java-poisk-v-xml-i-vy-borka-danny-h.html
     @SneakyThrows
     private static List<String> getDevelopersWithSalary(Document doc, XPath xpath, double avgSalary) {
         List<String> list = new ArrayList<>();
-        // получаем список всех узлов, которые отвечают условию
-        //https://howtodoinjava.com/java/xml/java-xpath-expression-examples/
         XPathExpression xPathExpression = xpath.compile(
                 "//employee[postAndSalary/salary>" + avgSalary + "]/fio/text()"
         );
