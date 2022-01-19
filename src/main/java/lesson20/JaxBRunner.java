@@ -1,7 +1,6 @@
 package lesson20;
 
 import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import lombok.SneakyThrows;
 
@@ -17,14 +16,14 @@ public class JaxBRunner {
         employee.setLogin("doro");
         employee.setFio("DRA");
         employee.setCity(new Department("Nizhny Novgorod"));
-        employee.setPostAndSalary(new Position("engineer", 50000));
+        employee.setPostAndSalary(new Position("engineer", 55000));
 
         Employee employee2 = new Employee();
         employee2.setTabel(101);
         employee2.setLogin("fade");
         employee2.setFio("FEA");
-        employee2.setCity(new Department("Innopolis"));
-        employee2.setPostAndSalary(new Position("leading engineer", 100000));
+        employee2.setCity(new Department("Saratov"));
+        employee2.setPostAndSalary(new Position("leading engineer", 70000));
 
         Employee employee3 = new Employee();
         employee3.setTabel(102);
@@ -41,37 +40,34 @@ public class JaxBRunner {
         employee4.setPostAndSalary(new Position("technician", 25000));
 
         Employee employee5 = new Employee();
-        employee5.setTabel(103);
+        employee5.setTabel(104);
         employee5.setLogin("tuma");
         employee5.setFio("TAV");
         employee5.setCity(new Department("Moscow"));
-        employee5.setPostAndSalary(new Position("trade manager", 250000));
+        employee5.setPostAndSalary(new Position("trade manager", 100000));
 
+        Employee employee6 = new Employee();
+        employee6.setTabel(105);
+        employee6.setLogin("grosh");
+        employee6.setFio("GAM");
+        employee6.setCity(new Department("Semenov"));
+        employee6.setPostAndSalary(new Position("guard", 12000));
 
         EmployeeWrapper employeeWrapper = new EmployeeWrapper();
-        employeeWrapper.setEmployees(Arrays.asList(employee, employee2, employee3, employee4, employee5));
-
-
-        //создание объекта Marshaller, который выполняет сериализацию
+        employeeWrapper.setEmployees(Arrays.asList(employee, employee2, employee3, employee4, employee5, employee6));
         xmlWriter(employeeWrapper);
-
-
     }
 
     @SneakyThrows
-    private static void xmlWriter(EmployeeWrapper employee) throws JAXBException {
+    private static void xmlWriter(EmployeeWrapper employee) {
         StringWriter writer = new StringWriter();
         JAXBContext context = JAXBContext.newInstance(EmployeeWrapper.class);
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-        // сама сериализация
         marshaller.marshal(employee, writer);
-
-        //преобразовываем в строку все записанное в StringWriter
         String result = writer.toString();
         FileWriter fw = new FileWriter("src/main/resources/employee.xml", false);
         fw.write(result);
         fw.flush();
-        //System.out.println(result);
     }
 }

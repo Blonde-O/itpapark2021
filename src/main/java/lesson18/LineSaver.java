@@ -16,6 +16,7 @@ public class LineSaver implements Runnable {
     @Override
     public void run() {
         System.out.println("Началось построчное сохранение файла");
+        System.out.println(LineSaver.class.getResource(fileName));
         try (BufferedReader br = new BufferedReader(
                 new FileReader(fileName))) {
             String line;

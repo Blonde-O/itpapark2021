@@ -9,7 +9,7 @@
         </city>
         <postAndSalary>
             <position>engineer</position>
-            <salary>50000</salary>
+            <salary>55000</salary>
         </postAndSalary>
     </employee>
     <employee>
@@ -17,11 +17,11 @@
         <login>fade</login>
         <fio>FEA</fio>
         <city>
-            <city>Innopolis</city>
+            <city>Saratov</city>
         </city>
         <postAndSalary>
             <position>leading engineer</position>
-            <salary>100000</salary>
+            <salary>70000</salary>
         </postAndSalary>
     </employee>
     <employee>
@@ -49,7 +49,7 @@
         </postAndSalary>
     </employee>
     <employee>
-        <tabel>103</tabel>
+        <tabel>104</tabel>
         <login>tuma</login>
         <fio>TAV</fio>
         <city>
@@ -57,7 +57,19 @@
         </city>
         <postAndSalary>
             <position>trade manager</position>
-            <salary>250000</salary>
+            <salary>100000</salary>
+        </postAndSalary>
+    </employee>
+    <employee>
+        <tabel>105</tabel>
+        <login>grosh</login>
+        <fio>GAM</fio>
+        <city>
+            <city>Semenov</city>
+        </city>
+        <postAndSalary>
+            <position>guard</position>
+            <salary>12000</salary>
         </postAndSalary>
     </employee>
 </Employees>

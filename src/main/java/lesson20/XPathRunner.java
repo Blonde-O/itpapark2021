@@ -2,8 +2,6 @@ package lesson20;
 
 import lombok.SneakyThrows;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -28,9 +26,8 @@ public class XPathRunner {
             double avg = (Double) xPath.compile("sum(//employee/postAndSalary/salary) div count(//employee/postAndSalary/salary)")
                     .evaluate(xmlDocument, XPathConstants.NUMBER);
             System.out.println("Среднее значение заработной платы: " + avg);
-            List<String> names = getDevelopersWithSalary(xmlDocument, xPath,avg);
+            List<String> names = getDevelopersWithSalary(xmlDocument, xPath, avg);
             System.out.println("ФИО работников с зп выше средней" + names);
-
         }
     }
 
@@ -39,21 +36,20 @@ public class XPathRunner {
         DocumentBuilder builder = builderFactory.newDocumentBuilder();
         return builder.parse(inputStream);
     }
-//https://javadevblog.com/primer-raboty-s-xpath-v-java-poisk-v-xml-i-vy-borka-danny-h.html
+
+    //https://javadevblog.com/primer-raboty-s-xpath-v-java-poisk-v-xml-i-vy-borka-danny-h.html
     @SneakyThrows
     private static List<String> getDevelopersWithSalary(Document doc, XPath xpath, double avgSalary) {
         List<String> list = new ArrayList<>();
-                    // получаем список всех узлов, которые отвечают условию
+        // получаем список всех узлов, которые отвечают условию
         //https://howtodoinjava.com/java/xml/java-xpath-expression-examples/
-            XPathExpression xPathExpression = xpath.compile(
-                    "//employee[postAndSalary/salary>" + avgSalary + "]/fio/text()"
-            );
-            NodeList nodeList = (NodeList) xPathExpression.evaluate(doc, XPathConstants.NODESET);
-            for (int i = 0; i < nodeList.getLength(); i++){
-                list.add(nodeList.item(i).getNodeValue());}
-
-
+        XPathExpression xPathExpression = xpath.compile(
+                "//employee[postAndSalary/salary>" + avgSalary + "]/fio/text()"
+        );
+        NodeList nodeList = (NodeList) xPathExpression.evaluate(doc, XPathConstants.NODESET);
+        for (int i = 0; i < nodeList.getLength(); i++) {
+            list.add(nodeList.item(i).getNodeValue());
+        }
         return list;
     }
-
 }
