@@ -21,7 +21,7 @@
         </city>
         <postAndSalary>
             <position>leading engineer</position>
-            <salary>200000</salary>
+            <salary>100000</salary>
         </postAndSalary>
     </employee>
     <employee>
@@ -33,7 +33,31 @@
         </city>
         <postAndSalary>
             <position>assistant</position>
-            <salary>40000</salary>
+            <salary>45000</salary>
+        </postAndSalary>
+    </employee>
+    <employee>
+        <tabel>103</tabel>
+        <login>zelen</login>
+        <fio>ZMY</fio>
+        <city>
+            <city>Balakhna</city>
+        </city>
+        <postAndSalary>
+            <position>technician</position>
+            <salary>25000</salary>
+        </postAndSalary>
+    </employee>
+    <employee>
+        <tabel>103</tabel>
+        <login>tuma</login>
+        <fio>TAV</fio>
+        <city>
+            <city>Moscow</city>
+        </city>
+        <postAndSalary>
+            <position>trade manager</position>
+            <salary>250000</salary>
         </postAndSalary>
     </employee>
 </Employees>
