@@ -17,6 +17,7 @@
         <jaxb.version>3.0.0</jaxb.version>
         <jackson-databind.version>2.12.5</jackson-databind.version>
         <opencsv.version>5.4</opencsv.version>
+        <json.version>20211205</json.version>
     </properties>
 
     <dependencies>
@@ -57,6 +58,14 @@
             <artifactId>opencsv</artifactId>
             <version>${opencsv.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${json.version}</version>
+        </dependency>
+
+
     </dependencies>
 
 
