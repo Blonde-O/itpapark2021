@@ -1,40 +1,69 @@
 package lesson20;
 
+import com.jayway.jsonpath.JsonPath;
 import lombok.SneakyThrows;
 import org.json.JSONObject;
 import org.json.XML;
 
-import java.io.BufferedReader;
-import java.io.FileWriter;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.List;
 
-public class JSonRunner {
+public class JsonRunner {
+    public static int PRETTY_FACTOR = 4;
+
+    //Конвертируем созданный xml в json. Получаем полный список сотрудников и выводим информацию о тех,
+    //кто имеет нечетный индекс в списке.
     @SneakyThrows
     public static void main(String[] args) {
+        String FilePath = "src/main/resources/employee";
+        String xmlExtension =".xml";
+        String jsonExtension =".json";
+        String jsonPath = "$.Employees.employee[*]";
 
-       /*String xmlPath = "src/main/resources/employee.xml";
+        try {
+            writeJsonFile(FilePath+jsonExtension, getString(FilePath+xmlExtension));
+            printAllEmployees(getString(FilePath+jsonExtension), jsonPath);
+            findOddEmployees(getString(FilePath+jsonExtension), jsonPath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
-        FileWriter fw = new FileWriter("src/main/resources/employee.json", false);
-        fw.write(String.valueOf(XML.toJSONObject(xmlPath).toString()));
-        fw.flush();*/
+    private static String getString(String filePath) throws IOException {
+        File file = new File(filePath);
+        InputStream inputStream = new FileInputStream(file);
+        StringBuilder builder = new StringBuilder();
+        int ptr;
+        while ((ptr = inputStream.read()) != -1) {
+            builder.append((char) ptr);
+        }
+        return builder.toString();
+    }
 
+    private static void writeJsonFile(String filePath, String xml) throws IOException {
+        JSONObject jsonObj = XML.toJSONObject(xml);
+        BufferedWriter bufferedWriter =
+                new BufferedWriter(new FileWriter(filePath));
+        bufferedWriter.write(jsonObj.toString(PRETTY_FACTOR));
+        bufferedWriter.close();
+    }
+    private static void printAllEmployees(String file, String path) {
+        System.out.println("Полный список работников:");
+        List<String> allEmployees = JsonPath.read(file, path+ ".fio");
+        int count =0;
+        for (Object employees : allEmployees) {
+            System.out.println(count + ") " + employees.toString());
+            count++;
+        }
+    }
 
-       InputStreamReader inputStream = new InputStreamReader(JSonRunner.class.getResourceAsStream("/employee.xml"));
-        if (inputStream != null) {
-            BufferedReader bufferedReader = new BufferedReader(inputStream);
-            StringBuilder responseStrBuilder = new StringBuilder();
-
-            String inputStr;
-            while ((inputStr = bufferedReader.readLine()) != null) {
-                inputStr = inputStr+"\n";
-                responseStrBuilder.append(inputStr);
+    public static void findOddEmployees(String file, String path) {
+        System.out.println("\nИнформация о сотрудниках с нечентыми индексами:");
+        List<Object> namesOfOddEmployees = JsonPath.read(file, path);
+        for (int i = 1; i < namesOfOddEmployees.size(); i++) {
+            if (i % 2 != 0) {
+                System.out.println(namesOfOddEmployees.get(i) + "\t");
             }
-
-            JSONObject jsonObject = XML.toJSONObject(responseStrBuilder.toString());
-            FileWriter fw = new FileWriter("src/main/resources/employee.json", false);
-            fw.write(String.valueOf(jsonObject));
-            fw.flush();
         }
     }
 }

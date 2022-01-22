@@ -1,15 +1,14 @@
-package lesson20;
+package lesson20.classes;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Department {
+public class Position {
 
-    private  String city;
-
+    private String position;
+    private int salary;
 }

@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class XPathRunner {
+   //Парсим xml с переченм сотрудников и находим сотрудников с з/п ниже средней.
     public static void main(String[] args) throws Exception {
 
         try (InputStream inputStream = XPathRunner.class.getResourceAsStream("/employee.xml")) {

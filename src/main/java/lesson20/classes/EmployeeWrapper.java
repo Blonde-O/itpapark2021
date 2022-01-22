@@ -1,4 +1,4 @@
-package lesson20;
+package lesson20.classes;
 
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
@@ -7,15 +7,12 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 
 import java.util.List;
+
 @Data
-@XmlRootElement (name = "Employees")
+@XmlRootElement(name = "Employees")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class EmployeeWrapper {
 
-    @XmlElement(name ="employee")
+    @XmlElement(name = "employee")
     private List<Employee> employees;
-
-
-
-
 }
