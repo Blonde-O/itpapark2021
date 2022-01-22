@@ -1,1 +1,62 @@
-{}
+{"Employees": {"employee": [
+    {
+        "postAndSalary": {
+            "position": "engineer",
+            "salary": 55000
+        },
+        "tabel": 100,
+        "login": "doro",
+        "department": {"city": "Nizhny Novgorod"},
+        "fio": "DRA"
+    },
+    {
+        "postAndSalary": {
+            "position": "leading engineer",
+            "salary": 70000
+        },
+        "tabel": 101,
+        "login": "fade",
+        "department": {"city": "Saratov"},
+        "fio": "FEA"
+    },
+    {
+        "postAndSalary": {
+            "position": "assistant",
+            "salary": 45000
+        },
+        "tabel": 102,
+        "login": "boei",
+        "department": {"city": "St.Petersburg"},
+        "fio": "BOI"
+    },
+    {
+        "postAndSalary": {
+            "position": "technician",
+            "salary": 25000
+        },
+        "tabel": 103,
+        "login": "zelen",
+        "department": {"city": "Balakhna"},
+        "fio": "ZMY"
+    },
+    {
+        "postAndSalary": {
+            "position": "trade manager",
+            "salary": 100000
+        },
+        "tabel": 104,
+        "login": "tuma",
+        "department": {"city": "Moscow"},
+        "fio": "TAV"
+    },
+    {
+        "postAndSalary": {
+            "position": "guard",
+            "salary": 12000
+        },
+        "tabel": 105,
+        "login": "grosh",
+        "department": {"city": "Semenov"},
+        "fio": "GAM"
+    }
+]}}

@@ -4,9 +4,9 @@
         <tabel>100</tabel>
         <login>doro</login>
         <fio>DRA</fio>
-        <city>
+        <department>
             <city>Nizhny Novgorod</city>
-        </city>
+        </department>
         <postAndSalary>
             <position>engineer</position>
             <salary>55000</salary>
@@ -16,9 +16,9 @@
         <tabel>101</tabel>
         <login>fade</login>
         <fio>FEA</fio>
-        <city>
+        <department>
             <city>Saratov</city>
-        </city>
+        </department>
         <postAndSalary>
             <position>leading engineer</position>
             <salary>70000</salary>
@@ -28,9 +28,9 @@
         <tabel>102</tabel>
         <login>boei</login>
         <fio>BOI</fio>
-        <city>
+        <department>
             <city>St.Petersburg</city>
-        </city>
+        </department>
         <postAndSalary>
             <position>assistant</position>
             <salary>45000</salary>
@@ -40,9 +40,9 @@
         <tabel>103</tabel>
         <login>zelen</login>
         <fio>ZMY</fio>
-        <city>
+        <department>
             <city>Balakhna</city>
-        </city>
+        </department>
         <postAndSalary>
             <position>technician</position>
             <salary>25000</salary>
@@ -52,9 +52,9 @@
         <tabel>104</tabel>
         <login>tuma</login>
         <fio>TAV</fio>
-        <city>
+        <department>
             <city>Moscow</city>
-        </city>
+        </department>
         <postAndSalary>
             <position>trade manager</position>
             <salary>100000</salary>
@@ -64,9 +64,9 @@
         <tabel>105</tabel>
         <login>grosh</login>
         <fio>GAM</fio>
-        <city>
+        <department>
             <city>Semenov</city>
-        </city>
+        </department>
         <postAndSalary>
             <position>guard</position>
             <salary>12000</salary>
