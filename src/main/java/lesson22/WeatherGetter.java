@@ -1,14 +1,15 @@
-package lesson21;
+package lesson22;
 
 import com.jayway.jsonpath.JsonPath;
 import lombok.SneakyThrows;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Scanner;
 
 public class WeatherGetter {
     final static String DEGREE  = "\u00b0";
@@ -19,7 +20,11 @@ public class WeatherGetter {
         String str;
         String city = "Нижний+Новгород";
         String jsonFile = "src/main/resources/weather.json";
-        String jsonPath = "$.main.temp";
+        String temperaturePath = "$.main.temp";
+        String humidityPath = "$.main.humidity";
+        String descriptionPath = "$.weather[*].description";
+        String windPath = "$.wind.speed";
+        city.replace("\s", "+");
 
         String [] cities = new String []{"Сочи", "Москва", "Волгоград", "Киев", "Архангельск", "Тюмень", "Саранск", "Воркута", "Норильск"};
 
@@ -29,15 +34,22 @@ public class WeatherGetter {
             URL url = uri.toURL();
             URLConnection urlConnection = url.openConnection();
             urlConnection.connect();
-            Scanner scanner = new Scanner(urlConnection.getInputStream());
             StringBuilder stringBuilder1 = new StringBuilder();
             int character;
             while ((character = urlConnection.getInputStream().read()) != -1) {
                 stringBuilder1.append((char) character);
             }
             String jsonAsString = stringBuilder1.toString();
-            Object temp = JsonPath.read(jsonAsString, jsonPath);
-            System.out.println("Текущая температура в городе " + town + " составляет: " + temp + " " + DEGREE + "C");
+            Object temp = JsonPath.read(jsonAsString, temperaturePath);
+            Object description = JsonPath.read(jsonAsString, descriptionPath);
+
+            Object humidity = JsonPath.read(jsonAsString, humidityPath);
+            Object wind = JsonPath.read(jsonAsString, windPath);
+            System.out.println("Текущая погода в городе " + town + " :");
+            System.out.println("общая характеристика: " + description);
+            System.out.println("температура воздуха:  " + temp + " " + DEGREE + "C");
+            System.out.println("влажность воздуха: " + humidity);
+            System.out.println("скорость ветра:  " +wind+ " км/ч");
 
 
             //String line = String.format(FORMAT_TEXT,"Текущая температура в городе" + town + " составляет: " + temp + " "  + DEGREE + "C\t");
@@ -51,25 +63,7 @@ public class WeatherGetter {
 
 
 
-//        /*Scanner scanner = new Scanner(url.openStream())
-        /*BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(jsonFile));
-        while (scanner.hasNextLine()) {
-            str = scanner.nextLine();
-            bufferedWriter.write(str);
-            System.out.println(str);
-        }
-        bufferedWriter.close();
-
-        File file = new File(jsonFile);
-        InputStream fileInputStream = new FileInputStream(file);
-        StringBuilder stringBuilder = new StringBuilder();
-        int crt;
-        while ((crt= fileInputStream.read())!=-1){
-            stringBuilder.append((char) crt);
-        }
-        String jsonAsString = stringBuilder.toString();
-        double temp = JsonPath.read(jsonAsString, jsonPath);
-        System.out.println(temp);*/
+//
 
     }
 }
