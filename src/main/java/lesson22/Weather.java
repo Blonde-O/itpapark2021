@@ -4,10 +4,12 @@ import com.jayway.jsonpath.JsonPath;
 import lombok.SneakyThrows;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -15,7 +17,7 @@ import java.nio.file.Paths;
 public class Weather {
     private final String temperaturePath = "$.main.temp";
     private final String humidityPath = "$.main.humidity";
-    private final String descriptionPath = "$.weather[*].main";
+    private final String descriptionPath = "$.weather[*].description";
     private final String windPath = "$.wind.speed";
     private final String pressurePath = "$.main.pressure";
 
@@ -56,8 +58,10 @@ public class Weather {
 
     private String getString(StringBuilder sb, URLConnection connection) throws IOException {
         int character;
-        while ((character = connection.getInputStream().read()) != -1) {
-            sb.append((char) character);
+        try (InputStreamReader sr = new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8)) {
+            while ((character = sr.read()) != -1) {
+                sb.append((char) character);
+            }
         }
         return sb.toString();
     }
