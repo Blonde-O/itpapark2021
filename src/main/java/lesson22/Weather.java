@@ -13,19 +13,19 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Weather {
-
     private final String temperaturePath = "$.main.temp";
     private final String humidityPath = "$.main.humidity";
     private final String descriptionPath = "$.weather[*].main";
     private final String windPath = "$.wind.speed";
     private final String pressurePath = "$.main.pressure";
-    private final String appIdPath = "src/main/resources/appid.txt";
+
     private final String cityName;
-    private String appId;
+    private final String appId;
 
     @SneakyThrows
     public Weather(String cityName) {
         this.cityName = cityName;
+        String appIdPath = "src/main/resources/appid.txt";
         this.appId = extractAppId(appIdPath);
     }
 
@@ -51,8 +51,7 @@ public class Weather {
         StringBuilder stringBuilder = new StringBuilder();
         URLConnection urlConnection = getUrlConnection(cityName, appId);
         String jsonAsString = getString(stringBuilder, urlConnection);
-        Object obj = JsonPath.read(jsonAsString, parameterPath);
-        return obj;
+        return JsonPath.read(jsonAsString, parameterPath);
     }
 
     private String getString(StringBuilder sb, URLConnection connection) throws IOException {
@@ -60,8 +59,7 @@ public class Weather {
         while ((character = connection.getInputStream().read()) != -1) {
             sb.append((char) character);
         }
-        String jsonAsString = sb.toString();
-        return jsonAsString;
+        return sb.toString();
     }
 
     private URLConnection getUrlConnection(String city, String appId) throws URISyntaxException, IOException {
@@ -76,8 +74,6 @@ public class Weather {
 
     private String extractAppId(String appIdPath) throws IOException {
         Path path = Paths.get(appIdPath);
-        String id = Files.readString(path);
-        return id;
+        return Files.readString(path);
     }
-
 }
