@@ -15,50 +15,49 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Weather {
-    private final String temperaturePath = "$.main.temp";
-    private final String humidityPath = "$.main.humidity";
-    private final String descriptionPath = "$.weather[*].description";
-    private final String windPath = "$.wind.speed";
-    private final String pressurePath = "$.main.pressure";
-
-    private final String cityName;
-    private final String appId;
+    private final String TEMPERATURE_PATH = "$.main.temp";
+    private final String HUMIDITY_PATH = "$.main.humidity";
+    private final String DESCRIPTION_PATH = "$.weather[*].description";
+    private final String WIND_PATH = "$.wind.speed";
+    private final String PRESSURE_PATH = "$.main.pressure";
+    private final String CITY_NAME;
+    private final String APP_ID;
+    private String jsonString;
 
     @SneakyThrows
     public Weather(String cityName) {
-        this.cityName = cityName;
+        this.CITY_NAME = cityName;
         String appIdPath = "src/main/resources/appid.txt";
-        this.appId = extractAppId(appIdPath);
+        this.APP_ID = extractAppId(appIdPath);
     }
-
 
     @SneakyThrows
     public void getWeather() {
-        System.out.println("Текущая погода в городе " + cityName + " :");
-        Object temp = getObject(temperaturePath);
+        getStringFromJson();
+        System.out.println("Текущая погода в городе " + CITY_NAME + " :");
+        Object temp = JsonPath.read(jsonString, TEMPERATURE_PATH);
         System.out.println(" - температура воздуха:  " + temp + " \u00b0" + "C");
-        Object description = getObject(descriptionPath);
+        Object description = JsonPath.read(jsonString, DESCRIPTION_PATH);
         System.out.println(" - общая характеристика: " + description);
-        Object humidity = getObject(humidityPath);
+        Object humidity = JsonPath.read(jsonString, HUMIDITY_PATH);
         System.out.println(" - влажность воздуха: " + humidity + "%");
-        Object wind = getObject(windPath);
+        Object wind = JsonPath.read(jsonString, WIND_PATH);
         System.out.println(" - скорость ветра:  " + wind + " км/ч");
-        Object pressure = getObject(pressurePath);
+        Object pressure = JsonPath.read(jsonString, PRESSURE_PATH);
         System.out.println(" - атмосферное давление:  " + pressure + " гПа");
     }
 
-
     @SneakyThrows
-    private Object getObject(String parameterPath) {
+    private void getStringFromJson() {
         StringBuilder stringBuilder = new StringBuilder();
-        URLConnection urlConnection = getUrlConnection(cityName, appId);
-        String jsonAsString = getString(stringBuilder, urlConnection);
-        return JsonPath.read(jsonAsString, parameterPath);
+        URLConnection urlConnection = getUrlConnection(CITY_NAME, APP_ID);
+        this.jsonString = getString(stringBuilder, urlConnection);
     }
 
     private String getString(StringBuilder sb, URLConnection connection) throws IOException {
         int character;
-        try (InputStreamReader sr = new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8)) {
+        try (InputStreamReader sr = new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8)
+        ) {
             while ((character = sr.read()) != -1) {
                 sb.append((char) character);
             }
