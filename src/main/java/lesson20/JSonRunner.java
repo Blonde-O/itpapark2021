@@ -8,7 +8,7 @@ import org.json.XML;
 import java.io.*;
 import java.util.List;
 
-public class JsonRunner {
+public class JSonRunner {
     public static int PRETTY_FACTOR = 4;
 
     //Конвертируем созданный xml в json. Получаем полный список сотрудников и выводим информацию о тех,
