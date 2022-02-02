@@ -18,6 +18,7 @@ public class DbRunner {
             + "pages INTEGER NOT NULL, "
             + "year INTEGER NOT NULL)";
     private static final String INSERT_PERSON_QUERY = "INSERT INTO books (isbn, name, link, pages, year) VALUES (?, ?, ?, ?, ?)";
+    private static final String FIND_THE_BOOK = "SELECT * FROM books WHERE name LIKE 'Чужак'";
 
     static {
         try {
@@ -43,7 +44,8 @@ public class DbRunner {
             }
 
             try (CSVReader reader = new CSVReader(new FileReader("src/main/resources/bookData.csv"));
-                 PreparedStatement stmt = connection.prepareStatement(INSERT_PERSON_QUERY)) {
+                 PreparedStatement stmt = connection.prepareStatement(INSERT_PERSON_QUERY)
+                 ) {
                 String[] record;
                 while ((record = reader.readNext()) != null) {
                     stmt.setInt(1, Integer.valueOf(record[0]));
@@ -52,6 +54,18 @@ public class DbRunner {
                     stmt.setInt(4, Integer.valueOf(record[3]));
                     stmt.setInt(5, Integer.valueOf(record[4]));
                     stmt.executeUpdate();
+                }
+                ResultSet rs = stmt.executeQuery(FIND_THE_BOOK);
+                while (rs.next()) {
+                    int id = rs.getInt(1);
+                    String name = rs.getString(2);
+                    String link = rs.getString(3);
+                    int pages =  rs.getInt(4);
+                    int year =  rs.getInt(5);
+
+                    System.out.printf("ISBN: %d, Название: %s, Ссылка: %s, Кол-во страниц: %d, Год: %d %n", id, name, link, pages, year);
+
+
                 }
             }
             catch(IOException exc) {
@@ -64,6 +78,8 @@ public class DbRunner {
         catch (SQLException exc) {
             exc.printStackTrace();
         }
+
+
     }
 }
 
