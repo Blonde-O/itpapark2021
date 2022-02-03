@@ -10,7 +10,7 @@ import java.sql.*;
 @NoArgsConstructor
 public class CreateTable {
     private static final String CREATE_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS books ("
-            + "isbn INTEGER NOT NULL, "
+            + "isbn BIGINT NOT NULL, "
             + "name TEXT NOT NULL, "
             + "link TEXT NOT NULL, "
             + "pages INTEGER NOT NULL, "
@@ -36,7 +36,7 @@ public class CreateTable {
         ) {
             String[] record;
             while ((record = reader.readNext()) != null) {
-                stmt.setInt(1, Integer.valueOf(record[0]));
+                stmt.setLong(1, Long.valueOf(record[0]));
                 stmt.setString(2, record[1]);
                 stmt.setString(3, record[2]);
                 stmt.setInt(4, Integer.valueOf(record[3]));
