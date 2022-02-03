@@ -19,7 +19,7 @@ public class DbRunner {
             + "year INTEGER NOT NULL, "
             + "PRIMARY KEY (isbn))";
     private static final String INSERT_PERSON_QUERY = "INSERT IGNORE INTO books (isbn, name, link, pages, year) VALUES (?,?,?,?,?)";
-    private static final String FIND_THE_BOOK = "SELECT * FROM books WHERE name LIKE 'Чужак'";
+    private static final String FIND_THE_BOOK = "SELECT * FROM books WHERE name  LIKE '%А%'";
 
     static {
         try {
@@ -58,17 +58,20 @@ public class DbRunner {
                 }
                 ResultSet rs = stmt.executeQuery(FIND_THE_BOOK);
 
+
                     while (rs.next()) {
                         int id = rs.getInt(1);
                         String name = rs.getString(2);
                         String link = rs.getString(3);
-                        int pages =  rs.getInt(4);
-                        int year =  rs.getInt(5);
+                        int pages = rs.getInt(4);
+                        int year = rs.getInt(5);
 
                         System.out.printf("ISBN: %d, Название: %s, Ссылка: %s, Кол-во страниц: %d, Год: %d %n", id, name, link, pages, year);
 
 
+
                     }
+
                 }
             catch(IOException exc) {
                 exc.printStackTrace();
