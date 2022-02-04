@@ -14,7 +14,7 @@ public class CreateConnection {
 
     static {
         try {
-            DB_SETTINGS.load(DbRunner.class.getResourceAsStream("/db.properties"));
+            DB_SETTINGS.load(CreateConnection.class.getResourceAsStream("/db.properties"));
 
         } catch (IOException e) {
             e.printStackTrace();
