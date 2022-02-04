@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Properties;
 
+//Данный класс создает подключение к БД
 @NoArgsConstructor
 public class CreateConnection {
     private static final Properties DB_SETTINGS = new Properties();

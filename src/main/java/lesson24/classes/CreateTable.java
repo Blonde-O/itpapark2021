@@ -7,6 +7,7 @@ import lombok.SneakyThrows;
 import java.io.FileReader;
 import java.sql.*;
 
+//Данный класс создает таблицу в БД из данных ресурсного csv-файла
 @NoArgsConstructor
 public class CreateTable {
     private final String CREATE_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS books ("
@@ -25,6 +26,7 @@ public class CreateTable {
 
         try (Statement stmt = con.createStatement()) {
             stmt.execute(CREATE_TABLE_QUERY);
+            stmt.execute("DELETE FROM books");
         } catch (
                 SQLException exc) {
             exc.printStackTrace();
@@ -41,6 +43,7 @@ public class CreateTable {
                 stmt.setInt(5, Integer.parseInt(record[4]));
                 stmt.executeUpdate();
             }
+            System.out.println("Таблица успешно создана в базе данных.");
         }
         con.close();
     }

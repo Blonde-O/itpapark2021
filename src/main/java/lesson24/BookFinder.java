@@ -4,6 +4,7 @@ import lesson24.classes.FindBook;
 
 import java.util.Scanner;
 
+//Приложение, выполняющее поиск книги в БД
 public class BookFinder {
     public static void main(String[] args) {
         int a;
