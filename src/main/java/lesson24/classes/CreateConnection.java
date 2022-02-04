@@ -16,7 +16,6 @@ public class CreateConnection {
     static {
         try {
             DB_SETTINGS.load(CreateConnection.class.getResourceAsStream("/db.properties"));
-
         } catch (IOException e) {
             e.printStackTrace();
         }
