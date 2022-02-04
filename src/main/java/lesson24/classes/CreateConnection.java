@@ -23,10 +23,9 @@ public class CreateConnection {
 
     @SneakyThrows
     public Connection startConnection() {
-        Connection connection = DriverManager.getConnection(
+        return DriverManager.getConnection(
                 DB_SETTINGS.getProperty("jdbc.url"),
                 DB_SETTINGS.getProperty("db.login"),
                 DB_SETTINGS.getProperty("db.password"));
-        return connection;
     }
 }
