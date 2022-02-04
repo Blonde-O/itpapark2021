@@ -34,11 +34,11 @@ public class CreateTable {
              PreparedStatement stmt = con.prepareStatement(INSERT_BOOK_QUERY)) {
             String[] record;
             while ((record = reader.readNext()) != null) {
-                stmt.setLong(1, Long.valueOf(record[0]));
+                stmt.setLong(1, Long.parseLong(record[0]));
                 stmt.setString(2, record[1]);
                 stmt.setString(3, record[2]);
-                stmt.setInt(4, Integer.valueOf(record[3]));
-                stmt.setInt(5, Integer.valueOf(record[4]));
+                stmt.setInt(4, Integer.parseInt(record[3]));
+                stmt.setInt(5, Integer.parseInt(record[4]));
                 stmt.executeUpdate();
             }
         }
