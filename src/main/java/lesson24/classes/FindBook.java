@@ -1,6 +1,7 @@
 package lesson24.classes;
 
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 
 import java.sql.*;
 
@@ -9,7 +10,8 @@ import java.sql.*;
 public class FindBook {
     private final String NAME;
 
-    public void searchBook() throws SQLException {
+    @SneakyThrows
+    public void searchBook() {
         int a = 0;
         Connection connection = new CreateConnection().startConnection();
         try {
@@ -33,11 +35,9 @@ public class FindBook {
                 System.out.println("Среди доступных книг совпадений не найдено!");
             }
             connection.close();
-        }
-        catch(SQLSyntaxErrorException e){
+        } catch (SQLSyntaxErrorException e) {
             System.out.println("База данных пуста. Наполните БД данными.");
             e.printStackTrace();
-
         }
     }
 }
