@@ -1,13 +1,11 @@
 package lesson24;
 
 import lesson24.classes.FindBook;
-import lombok.SneakyThrows;
 
 import java.util.Scanner;
 
 //Приложение, выполняющее поиск книги в БД
 public class BookFinder {
-    @SneakyThrows
     public static void main(String[] args) {
         int a;
         Scanner scanner = new Scanner(System.in);
