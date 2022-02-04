@@ -1,4 +1,4 @@
-package lesson24;
+package lesson24.classes;
 
 import com.opencsv.CSVReader;
 import lombok.NoArgsConstructor;
@@ -9,31 +9,29 @@ import java.sql.*;
 
 @NoArgsConstructor
 public class CreateTable {
-    private static final String CREATE_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS books ("
+    private final String CREATE_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS books ("
             + "isbn BIGINT NOT NULL, "
             + "name TEXT NOT NULL, "
             + "link TEXT NOT NULL, "
             + "pages INTEGER NOT NULL, "
             + "year INTEGER NOT NULL, "
             + "PRIMARY KEY (isbn))";
-    private static final String INSERT_BOOK_QUERY = "INSERT IGNORE INTO books (isbn, name, link, pages, year) VALUES (?,?,?,?,?)";
+    private final String INSERT_BOOK_QUERY = "INSERT IGNORE INTO books " +
+            "(isbn, name, link, pages, year) VALUES (?,?,?,?,?)";
 
     @SneakyThrows
     public void makeTable() {
         Connection con = new CreateConnection().startConnection();
 
-        try (
-                Statement stmt = con.createStatement()) {
+        try (Statement stmt = con.createStatement()) {
             stmt.execute(CREATE_TABLE_QUERY);
         } catch (
                 SQLException exc) {
             exc.printStackTrace();
         }
 
-        try (
-                CSVReader reader = new CSVReader(new FileReader("src/main/resources/bookData.csv"));
-                PreparedStatement stmt = con.prepareStatement(INSERT_BOOK_QUERY)
-        ) {
+        try (CSVReader reader = new CSVReader(new FileReader("src/main/resources/bookData.csv"));
+             PreparedStatement stmt = con.prepareStatement(INSERT_BOOK_QUERY)) {
             String[] record;
             while ((record = reader.readNext()) != null) {
                 stmt.setLong(1, Long.valueOf(record[0]));
@@ -43,7 +41,6 @@ public class CreateTable {
                 stmt.setInt(5, Integer.valueOf(record[4]));
                 stmt.executeUpdate();
             }
-
         }
         con.close();
     }

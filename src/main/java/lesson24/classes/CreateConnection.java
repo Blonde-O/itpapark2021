@@ -1,4 +1,4 @@
-package lesson24;
+package lesson24.classes;
 
 import lombok.NoArgsConstructor;
 import lombok.SneakyThrows;
@@ -10,7 +10,6 @@ import java.util.Properties;
 
 @NoArgsConstructor
 public class CreateConnection {
-
     private static final Properties DB_SETTINGS = new Properties();
 
     static {
@@ -30,10 +29,4 @@ public class CreateConnection {
                 DB_SETTINGS.getProperty("db.password"));
         return connection;
     }
-
-    @SneakyThrows
-    public void closeConnection() {
-        startConnection().close();
-    }
-
 }
