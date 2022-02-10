@@ -1,6 +1,7 @@
 package lesson26;
 
 import lombok.SneakyThrows;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -18,34 +19,25 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class Runner {
+public class AnotherRunner {
     @SneakyThrows
-
     public static void main(String[] args) {
-        String uriAddress = "https://www.cbr-xml-daily.ru/daily_utf8.xml";
-        String valuteCode = "USD";
-        URLConnection urlConnection = getUrlConnection(uriAddress);
-        System.out.println(extracted(urlConnection, valuteCode));
-       /* int character;
-        try (InputStreamReader sr = new InputStreamReader(urlConnection.getInputStream(), StandardCharsets.UTF_8)
-        ) {
-            while ((character = sr.read()) != -1) {
-                sb.append((char) character);
-            }
+        final AnnotationConfigApplicationContext lesson26 = new AnnotationConfigApplicationContext("lesson26");
+        final Valute valute= lesson26.getBean(Valute.class);
 
-        System.out.println(sb.toString());
-           /* InputStream is= urlConnection.getInputStream();
-        DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = builderFactory.newDocumentBuilder();
-        Document xmlDocument = builder.parse(is);
-        XPath xPath = XPathFactory.newInstance().newXPath();
-        double value = (double) xPath.compile("//VAlCurs/Valute[CharCode='USD']/Value/text()")
-                .evaluate(xmlDocument, XPathConstants.NUMBER);
-        System.out.println(value);
-    }*/
+        valute.setUriAddress("https://www.cbr-xml-daily.ru/daily_utf8.xml");
+        valute.setValuteName("BYN");
+        valute.getCurrentCourse();
+        System.out.println(valute.getValue());
+
+        /*String uriAddress = "https://www.cbr-xml-daily.ru/daily_utf8.xml";
+        final AnnotationConfigApplicationContext lesson26 = new AnnotationConfigApplicationContext("lesson26");
+        final ConnectionMaker cm = lesson26.getBean(ConnectionMaker.class);
+        cm.setUriAddress(uriAddress);
+        URLConnection urlConnection = cm.getConnection();
+        System.out.println(extracted(urlConnection, "UZS"));
 
     }
-
     private static double extracted(URLConnection urlConnection, String valute) throws IOException, ParserConfigurationException, SAXException, XPathExpressionException {
         double avvg;
         try (InputStream inputStream = urlConnection.getInputStream()) {
@@ -62,19 +54,10 @@ public class Runner {
         return avvg;
     }
 
-    private static URLConnection getUrlConnection(String str) throws URISyntaxException, IOException {
-        URI uri = new URI(str);
-        URL url = uri.toURL();
-        URLConnection urlConnection = url.openConnection();
-        urlConnection.connect();
-        return urlConnection;
-    }
-
     private static Document getXML(InputStream inputStream) throws ParserConfigurationException, SAXException, IOException {
         DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = builderFactory.newDocumentBuilder();
         return builder.parse(inputStream);
+    }*/
     }
-
-
-    }
+}
