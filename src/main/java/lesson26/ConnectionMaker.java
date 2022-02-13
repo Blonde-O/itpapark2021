@@ -11,7 +11,6 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
 
-
 @Getter
 @Setter
 @NoArgsConstructor

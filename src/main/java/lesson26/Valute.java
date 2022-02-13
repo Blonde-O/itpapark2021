@@ -29,24 +29,24 @@ public class Valute {
     private final String URI_ADDRESS = "https://www.cbr-xml-daily.ru/daily_utf8.xml";
     @Autowired
     private ConnectionMaker connection;
-    private String valuteName;
-    private BigDecimal value;
 
     @SneakyThrows
-    public void getCurrentCourse() {
+    public BigDecimal getCurrentCourse(String str) {
         URLConnection urlConnection = connection.getConnection(URI_ADDRESS);
+        BigDecimal value;
         try (InputStream inputStream = urlConnection.getInputStream()) {
             Document xmlDocument = getXML(inputStream);
             XPath xPath = XPathFactory.newInstance().newXPath();
-            String val = (String) xPath.compile("/ValCurs/Valute[CharCode='" + this.valuteName
+            String val = (String) xPath.compile("/ValCurs/Valute[CharCode='" + str
                             + "']/Value/text()")
                     .evaluate(xmlDocument, XPathConstants.STRING);
             val = val.replace(",", ".");
             BigDecimal nominal = BigDecimal.valueOf((Double) xPath.compile("/ValCurs/Valute[CharCode='"
-                            + this.valuteName + "']/Nominal")
+                            + str + "']/Nominal")
                     .evaluate(xmlDocument, XPathConstants.NUMBER));
-            System.out.println(valuteName + " = " + (this.value = (new BigDecimal(val)).divide(nominal)) + " RUB");
+            value = (new BigDecimal(val)).divide(nominal);
         }
+        return value;
     }
 
     private Document getXML(InputStream inputStream) throws ParserConfigurationException, SAXException, IOException {
