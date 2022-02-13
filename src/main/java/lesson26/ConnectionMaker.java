@@ -15,22 +15,14 @@ import java.net.URLConnection;
 @Getter
 @Setter
 @NoArgsConstructor
+@Component
 public class ConnectionMaker {
-
-    //private String uriAddress;
-    private URLConnection urlConnection;
-
 
     public URLConnection getConnection(String str) throws URISyntaxException, IOException {
         URI uri = new URI(str);
         URL url = uri.toURL();
-        urlConnection = url.openConnection();
+        URLConnection urlConnection = url.openConnection();
         urlConnection.connect();
         return urlConnection;
     }
-
-
-
-
-
 }
