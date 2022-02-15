@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 @Component("justsecondname")
 public class SecondNamePrint implements Printable{
 
+    private String name ="Залупачес";
+    private String surName = "Хуипуталов";
+
     @Override
     public void print() {
         System.out.println("Ваша фамилия");
@@ -14,8 +17,11 @@ public class SecondNamePrint implements Printable{
 
     @Override
     public void reverse() {
-     String secondName = "Ваша фамилия";
-        StringBuilder sb = new StringBuilder(secondName);
+        StringBuilder sb = new StringBuilder(summName());
         System.out.println(sb.reverse());
+    }
+
+    private String summName (){
+        return name + " " + surName;
     }
 }
