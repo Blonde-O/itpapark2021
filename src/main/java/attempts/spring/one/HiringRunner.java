@@ -1,4 +1,4 @@
-package attempts.spring;
+package attempts.spring.one;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

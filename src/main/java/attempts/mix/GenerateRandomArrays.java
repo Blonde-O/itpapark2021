@@ -1,4 +1,4 @@
-package attempts;
+package attempts.mix;
 
 import java.util.*;
 

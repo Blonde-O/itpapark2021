@@ -1,6 +1,6 @@
-package attempts.spring.classImpl;
+package attempts.spring.one.classImpl;
 
-import attempts.spring.Department;
+import attempts.spring.one.Department;
 
 public class DelphiDepImpl implements Department {
 
