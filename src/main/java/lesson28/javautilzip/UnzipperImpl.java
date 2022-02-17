@@ -1,14 +1,16 @@
-package lesson28;
+package lesson28.javautilzip;
+
+import lesson28.interfaces.Unzipper;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-public class UnzipperImpl implements Unzipper{
+public class UnzipperImpl implements Unzipper {
     @Override
-    public void unpack() {
-        try(ZipInputStream zin = new ZipInputStream(new FileInputStream("C:\\Users\\blond\\IdeaProjects\\itpapark2021\\src\\main\\java\\lesson28\\sources\\output.zip")))
+    public void unpack(String zipPath, String unzipPath) {
+        try(ZipInputStream zin = new ZipInputStream(new FileInputStream(zipPath)))
         {
             ZipEntry entry;
             String name;
@@ -20,7 +22,7 @@ public class UnzipperImpl implements Unzipper{
                 System.out.printf("File name: %s \t File size: %d \n", name, size);
 
                 // распаковка
-                FileOutputStream fout = new FileOutputStream("C:\\Users\\blond\\IdeaProjects\\itpapark2021\\src\\main\\java\\lesson28\\sources\\unpacked" + name);
+                FileOutputStream fout = new FileOutputStream("C:\\hw28\\unpacked" + name);
                 for (int c = zin.read(); c != -1; c = zin.read()) {
                     fout.write(c);
                 }
