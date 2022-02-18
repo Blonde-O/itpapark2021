@@ -5,7 +5,7 @@ import lesson28.interfaces.Zipper;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-
+@SpringBootApplication
 public class ZipRunner {
     public static final String FILE_PATH = "C:\\hw28\\source\\testFile.txt";
     public static final String ZIP_PATH = "C:\\hw28\\output.zip";
