@@ -2,7 +2,6 @@ package lesson28;
 
 import lesson28.interfaces.Unzipper;
 import lesson28.interfaces.Zipper;
-import org.springframework.boot.Banner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -15,7 +14,7 @@ public class ZipSpringBootRunner {
 
     public static void main(String[] args) {
         final ConfigurableApplicationContext appContext = new SpringApplicationBuilder(ZipSpringBootRunner.class)
-                .bannerMode(Banner.Mode.OFF).run();
+                .run();
         final Zipper zipper = appContext.getBean(Zipper.class);
         final Unzipper unzipper = appContext.getBean(Unzipper.class);
         zipper.pack(FILE_PATH, ZIP_PATH);
