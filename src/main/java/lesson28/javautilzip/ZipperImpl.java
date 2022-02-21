@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+//Имплементация запаковки архива инструментами java.util.zip
 //@Component
 public class ZipperImpl implements Zipper {
 
