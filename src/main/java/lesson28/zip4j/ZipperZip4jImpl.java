@@ -15,8 +15,10 @@ import java.util.Scanner;
 public class ZipperZip4jImpl implements Zipper {
     @SneakyThrows
     @Override
-    public void pack(String filePath, String zipPath) {
+    public void pack(String zipPath) {
         Scanner in = new Scanner(System.in);
+        System.out.println("Введите адрес файла");
+        String filePath = in.nextLine();
         System.out.println("Желаете защитить архив паролем? (да/нет)");
         String needPassword = in.nextLine();
         File file = new File(filePath);
