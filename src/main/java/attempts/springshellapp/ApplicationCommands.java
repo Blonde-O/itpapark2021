@@ -1,3 +1,4 @@
+/*
 package attempts.springshellapp;
 
 import org.springframework.shell.Availability;
@@ -38,3 +39,4 @@ public class ApplicationCommands {
     }
 
 }
+*/
