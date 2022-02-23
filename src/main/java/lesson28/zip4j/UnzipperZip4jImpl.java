@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+//Имплементация распаковки архива инструментами net.lingala.zip4j
 @Component
 public class UnzipperZip4jImpl implements Unzipper {
     @SneakyThrows

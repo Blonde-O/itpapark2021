@@ -8,7 +8,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class ZipSpringBootRunner {
-    public static final String FILE_PATH = "C:\\hw28\\source\\testFile.txt";
     public static final String ZIP_PATH = "C:\\hw28\\output.zip";
     public static final String UNZIP_PATH = "C:\\hw28";
 
@@ -17,7 +16,7 @@ public class ZipSpringBootRunner {
                 .run();
         final Zipper zipper = appContext.getBean(Zipper.class);
         final Unzipper unzipper = appContext.getBean(Unzipper.class);
-        zipper.pack(FILE_PATH, ZIP_PATH);
+        zipper.pack(ZIP_PATH);
         unzipper.unpack(ZIP_PATH, UNZIP_PATH);
     }
 }

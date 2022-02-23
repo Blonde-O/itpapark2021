@@ -6,15 +6,20 @@ import lombok.SneakyThrows;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.Scanner;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
+//Имплементация запаковки архива инструментами java.util.zip
 //@Component
 public class ZipperImpl implements Zipper {
 
     @SneakyThrows
     @Override
-    public void pack(String filePath, String zipPath) {
+    public void pack(String zipPath) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите адрес файла");
+        String filePath = in.nextLine();
         FileOutputStream fos = new FileOutputStream(zipPath);
         ZipOutputStream zipOut = new ZipOutputStream(fos);
         File fileToZip = new File(filePath);

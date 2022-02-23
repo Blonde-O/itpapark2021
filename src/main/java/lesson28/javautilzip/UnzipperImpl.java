@@ -6,22 +6,20 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-
+//Имплементация распаковки архива инструментами java.util.zip
+//@Component
 public class UnzipperImpl implements Unzipper {
     @Override
     public void unpack(String zipPath, String unzipPath) {
-        try(ZipInputStream zin = new ZipInputStream(new FileInputStream(zipPath)))
-        {
+        try (ZipInputStream zin = new ZipInputStream(new FileInputStream(zipPath))) {
             ZipEntry entry;
             String name;
             long size;
-            while((entry=zin.getNextEntry())!=null){
+            while ((entry = zin.getNextEntry()) != null) {
 
-                name = entry.getName(); // получим название файла
-                size=entry.getSize();  // получим его размер в байтах
+                name = entry.getName();
+                size = entry.getSize();
                 System.out.printf("File name: %s \t File size: %d \n", name, size);
-
-                // распаковка
                 FileOutputStream fout = new FileOutputStream("C:\\hw28\\unpacked" + name);
                 for (int c = zin.read(); c != -1; c = zin.read()) {
                     fout.write(c);
@@ -30,9 +28,7 @@ public class UnzipperImpl implements Unzipper {
                 zin.closeEntry();
                 fout.close();
             }
-        }
-        catch(Exception ex){
-
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
     }
