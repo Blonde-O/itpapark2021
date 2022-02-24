@@ -27,7 +27,7 @@ public class City {
     @Column(name = "name_eng", nullable = false)
     private String nameEng;
 
-    @NotEmpty
+    //@NotEmpty
     @Column(name = "population", nullable = false)
     private long population;
 
