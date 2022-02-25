@@ -3,8 +3,7 @@ package lesson30;
 import lesson30.model.City;
 import lesson30.repository.CityRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import org.springframework.shell.Shell;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellOption;
@@ -15,11 +14,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ShellInteraction {
 
-    //@Autowired
     private final CityRepository cityRepository;
 
-    @ShellMethod(value = "Добавление города в БД", key = {"add", "a"})
-    public void add(long postcode, String rusName, String engName, long population) {
+    @ShellMethod(value = "Добавление города в БД. Укажите почтовый код, название " +
+            " название на англ., численность населения", key = {"add", "a"})
+    public void add(
+            @ShellOption({"-p"}) long postcode,
+            @ShellOption("-r") String rusName,
+            @ShellOption("-eng") String engName,
+            @ShellOption("-pop") long population) {
         cityRepository.save(new City(postcode, rusName, engName, population));
     }
 

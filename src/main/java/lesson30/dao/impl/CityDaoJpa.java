@@ -22,10 +22,8 @@ public class CityDaoJpa implements CityDao {
 
     @Override
     public List<City> findAll() {
-        //        em.getTransaction().begin();
         final Query selectAllQuery = em.createQuery("select a from City a");
         final List resultList = selectAllQuery.getResultList();
-//        em.getTransaction().commit();
         return resultList;
     }
 
@@ -56,4 +54,3 @@ public class CityDaoJpa implements CityDao {
         em.remove(city);
     }
 }
-

@@ -10,14 +10,4 @@ import javax.sql.DataSource;
 @Configuration
 @EntityScan("lesson30.model")
 public class AppConfig {
-
-    /*@Bean
-    public DataSource datasource() {
-        return DataSourceBuilder.create()
-                .driverClassName("com.mysql.cj.jdbc.Driver")
-                .url("jdbc:mysql://localhost:3306")
-                .username("root")
-                .password("password")
-                .build();
-    }*/
 }

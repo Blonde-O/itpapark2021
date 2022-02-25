@@ -1,0 +1,4 @@
+add 420000 Казань Kazan 1257341
+add 454000 Челябинск Chelyabinsk 1187960
+add 354340 Адлер Adler 76534
+all
