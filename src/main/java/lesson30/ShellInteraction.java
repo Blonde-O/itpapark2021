@@ -16,36 +16,34 @@ import java.util.List;
 public class ShellInteraction {
 
     //@Autowired
-   private  final CityRepository cityRepository;
+    private final CityRepository cityRepository;
 
     @ShellMethod(value = "Добавление города в БД", key = {"add", "a"})
-    public void add (@ShellOption("-pc") long postcode,
-                     @ShellOption ("-rn") String rusName,
-                     @ShellOption("-en") String engName,
-                     @ShellOption("-pop") long population){
+    public void add(long postcode, String rusName, String engName, long population) {
         cityRepository.save(new City(postcode, rusName, engName, population));
     }
+
     @ShellMethod(value = "Удаление города из БД", key = {"delete", "d", "del"})
-    public void deleteById(long id){
+    public void deleteById(String id) {
         cityRepository.deleteById(id);
     }
 
     @ShellMethod(value = "Очистка справочника", key = {"deleteAll", "da"})
-    public void deleteAll(){
+    public void deleteAll() {
         cityRepository.deleteAll();
         System.out.println("Справочник городов успешно очищен");
     }
 
-    @ShellMethod (value = "Поиск города по почтовому коду",  key = {"find", "f"})
-    public void findById (
-            @ShellOption({"-pc", "--postCode"}) long id){
-        System.out.println(cityRepository.findById(id).get().getNameRus());
+    @ShellMethod(value = "Поиск города по имени", key = {"find", "f"})
+    public void findById(String id) {
+        System.out.println(cityRepository.findById(id).get());
     }
-    @ShellMethod (value = "Вывод информации о всех городах из справочника",  key = {"all", "fa"})
-public void findAll(){
-    List<City> cities = cityRepository.findAll();
-    for(City city:cities){
-        System.out.println(city.toString());
+
+    @ShellMethod(value = "Вывод информации о всех городах из справочника", key = {"all", "fa"})
+    public void findAll() {
+        List<City> cities = cityRepository.findAll();
+        for (City city : cities) {
+            System.out.println(city.toString());
+        }
     }
-}
 }

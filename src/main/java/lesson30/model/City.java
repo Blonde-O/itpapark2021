@@ -15,11 +15,17 @@ import javax.validation.constraints.NotEmpty;
 @Table(name = "CITY")
 public class City {
 
-    @Id
+    public City(long postCode, String nameRus, String nameEng, long population) {
+        this.postCode = postCode;
+        this.nameRus = nameRus;
+        this.nameEng = nameEng;
+        this.population = population;
+    }
+
     @Column(name = "post_code", nullable = false)
     private long postCode;
 
-    @NotEmpty
+    @Id
     @Column(name = "name_russ", nullable = false)
     private String nameRus;
 
@@ -27,14 +33,16 @@ public class City {
     @Column(name = "name_eng", nullable = false)
     private String nameEng;
 
-    //@NotEmpty
     @Column(name = "population", nullable = false)
     private long population;
 
-    public City(long postCode, String nameRus, String nameEng, long population) {
-        this.postCode = postCode;
-        this.nameRus = nameRus;
-        this.nameEng = nameEng;
-        this.population = population;
+    @Override
+    public String toString() {
+        return "City{" +
+                "Почтовый код=" + postCode +
+                ", Название ='" + nameRus + '\'' +
+                ", Name='" + nameEng + '\'' +
+                ", Численность населения=" + population +
+                '}';
     }
 }
