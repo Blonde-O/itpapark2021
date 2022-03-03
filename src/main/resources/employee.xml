@@ -5,7 +5,7 @@
         <login>doro</login>
         <fio>DRA</fio>
         <department>
-            <city>Nizhny Novgorod</city>
+            <town>Nizhny Novgorod</town>
         </department>
         <postAndSalary>
             <position>engineer</position>
@@ -17,7 +17,7 @@
         <login>fade</login>
         <fio>FEA</fio>
         <department>
-            <city>Saratov</city>
+            <town>Saratov</town>
         </department>
         <postAndSalary>
             <position>leading engineer</position>
@@ -29,7 +29,7 @@
         <login>boei</login>
         <fio>BOI</fio>
         <department>
-            <city>St.Petersburg</city>
+            <town>St.Petersburg</town>
         </department>
         <postAndSalary>
             <position>assistant</position>
@@ -41,7 +41,7 @@
         <login>zelen</login>
         <fio>ZMY</fio>
         <department>
-            <city>Balakhna</city>
+            <town>Balakhna</town>
         </department>
         <postAndSalary>
             <position>technician</position>
@@ -53,7 +53,7 @@
         <login>tuma</login>
         <fio>TAV</fio>
         <department>
-            <city>Moscow</city>
+            <town>Moscow</town>
         </department>
         <postAndSalary>
             <position>trade manager</position>
@@ -65,7 +65,7 @@
         <login>grosh</login>
         <fio>GAM</fio>
         <department>
-            <city>Semenov</city>
+            <town>Semenov</town>
         </department>
         <postAndSalary>
             <position>guard</position>
