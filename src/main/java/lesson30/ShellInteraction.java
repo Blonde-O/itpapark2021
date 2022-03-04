@@ -1,3 +1,4 @@
+/*
 package lesson30;
 
 import lesson30.model.City;
@@ -49,4 +50,4 @@ public class ShellInteraction {
             System.out.println(city.toString());
         }
     }
-}
+}*/

@@ -1,3 +1,4 @@
+/*
 package lesson29;
 
 import lesson29.interfaces.Unzipper;
@@ -33,7 +34,9 @@ public class Interaction {
                 .terminal(this.terminal)
                 .completer(new StringsCompleter(this.OPTIONS))
                 .build();
-        /* Important: This allows completion on an empty buffer, rather than inserting a tab! */
+        */
+/* Important: This allows completion on an empty buffer, rather than inserting a tab! *//*
+
         lineReader.unsetOpt(LineReader.Option.RECOGNIZE_EXACT);
         String desription = "Желаете защитить архив паролем: " + OPTIONS + "\n";
         String input = lineReader.readLine(desription + "input: ").trim();
@@ -45,3 +48,4 @@ public class Interaction {
         unzipper.unpack(zipPath, unzipPath);
     }
 }
+*/

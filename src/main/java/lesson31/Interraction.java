@@ -1,3 +1,4 @@
+/*
 package lesson31;
 
 import lesson31.service.NewCityService;
@@ -35,4 +36,4 @@ public class Interraction {
     public void cityWithPopulationBiggerThanAverage () {
         newCityService.averagePopulation();
     }
-}
+}*/

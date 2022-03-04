@@ -1,3 +1,4 @@
+/*
 package attempts.interactiveShell;
 
 import org.jline.reader.LineReader;
@@ -28,7 +29,9 @@ public class UserInteraction {
                     .terminal(this.terminal)
                     .completer(new StringsCompleter(this.OPTIONS))
                     .build();
-            /* Important: This allows completion on an empty buffer, rather than inserting a tab! */
+            */
+/* Important: This allows completion on an empty buffer, rather than inserting a tab! *//*
+
             lineReader.unsetOpt(LineReader.Option.INSERT_TAB);
 
             String desription = "select on of this options: " + OPTIONS + "\n"
@@ -38,3 +41,4 @@ public class UserInteraction {
         }
     }
 
+*/
