@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Первая страница</title>
+    <title>Первый вопрос</title>
 </head>
 <body>
-<p>Какое время года сечас за окном?</p>
-<p> <input type="radio" name="a" value="зима"> зима</p>
-<p> <input type="radio" name="a" value="весна"> весна</p>
-<p> <input type="radio" name="a" value="лето"> лето</p>
-<p> <input type="radio" name="a" value="осень"> осень</p>
-<p><input type="button" value="Отправить"></p>
+    <h2>Вопрос #1. какое время года сейчас за окном?</h2>
+        <input name="q1" value="value1" id="value1" type="radio"><p>лето</p>
+        <input name="q1" value="value1" id="value2" type="radio"><p>зима</p>
+        <input name="q1" value="value2" id="value3" type="radio"><p>весна</p>
+        <input name="q1" value="value1" id="value4" type="radio"><p>осень</p>
+    <button>Проверить</button>
+    <button onclick="window.location.href = 'http://localhost:8080/secondPage.html'" alt=""> Следующий вопрос </button>
 </body>
 </html>
+<script src = "js/206.js"></script>

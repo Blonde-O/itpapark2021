@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Стартовая страница</title>
+    <style>
+        body { margin: 0; }
+        #button, #text { position: absolute; }
+        #button, #text { overflow: auto; padding: 10px; }
+        #header h1 { padding: 20px; margin: 0; }
+        #text {
+            top: 50px; /* Расстояние от верхнего края */
+            left: 150px; /* Расстояние от левого края */
+            bottom: 0; right: 0;
+            color: lightseagreen;
+            font-size: 20px;
+        }
+        #button {
+             top: 120px; /* Расстояние от верхнего края */
+             left: 10px; /* Расстояние от левого края */
+             bottom: 0; right: 0;
+         }
+    </style>
 </head>
 <body>
-Привет мир!<br>
-<button onclick="window.location.href = 'http://localhost:8080/firstPage.html'"> К тесту </button>
+    <h1>    Добро пожаловать </h1>
+    <div id="text">
+        <p> Уважаемый пользователь, предлагаю пройти небольшой тест. <br>
+            Но для начала необходимо авторизоваться.</p>
+    </div>
+    <div id="button">
+        <button onclick="window.location.href = 'http://localhost:8080/authorization.html'"> К авторизации </button>
+    </div>
 </body>
 </html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница авторизации</title>
+    <style>
+        [data-tooltip] {
+            position: relative; /* Относительное позиционирование */
+        }
+        [data-tooltip]::after {
+            content: attr(data-tooltip); /* Выводим текст */
+            position: absolute; /* Абсолютное позиционирование */
+            width: 300px; /* Ширина подсказки */
+            left: 300px; top: 0; /* Положение подсказки */
+            background: #3989c9; /* Синий цвет фона */
+            color: #fff; /* Цвет текста */
+            padding: 0.5em; /* Поля вокруг текста */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+            pointer-events: none; /* Подсказка */
+            opacity: 0; /* Подсказка невидима */
+            transition: 1s; /* Время появления подсказки */
+        }
+        [data-tooltip]:hover::after {
+            opacity: 1; /* Показываем подсказку */
+            right: 2em; /* Положение подсказки */
+        }
+    </style>
+</head>
+<body>
+    <p data-tooltip="Введите логин, например 'Роман'">
+        <strong>Логин:</strong>
+        <input maxlength="25" size="25" name="login" placeholder="Логин" data-tooltip="Введите логин">
+    </p>
+    <p data-tooltip="Введите пароль, например '123'">
+        <strong>Пароль:</strong>
+        <input type="password" maxlength="25" size="25" name="password" placeholder="Пароль">
+    </p>
+    <button onclick="window.location.href= 'http://localhost:8080/firstPage.html'"> Продолжить </button>
+</body>
+</html>
