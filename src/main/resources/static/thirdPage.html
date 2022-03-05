@@ -3,63 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Третий вопрос</title>
-    <style>
-        #first, #second, #third, #fourth, #one, #two, #three, #four {
-            position: absolute;
-        }
-
-        #first, #second, #third, #fourth, #one, #two, #three, #four {
-            overflow: auto;
-            padding: 10px;
-        }
-
-        #first {
-            top: 70px; /* Расстояние от верхнего края */
-            left: 30px; /* Расстояние от левого края */
-            bottom: 0;
-            right: 0;
-        }
-
-        #second {
-            top: 70px; /* Расстояние от верхнего края */
-            left: 310px; /* Расстояние от левого края */
-            bottom: 0;
-            right: 0;
-        }
-
-        #third {
-            top: 70px; /* Расстояние от верхнего края */
-            left: 590px; /* Расстояние от левого края */
-            bottom: 0;
-            right: 0;
-        }
-
-        #fourth {
-            top: 70px; /* Расстояние от верхнего края */
-            left: 860px; /* Расстояние от левого края */
-            bottom: 0;
-            right: 0;
-        }
-        #one{
-            top: 250px;
-            left: 150px;
-        }
-        #two{
-            top: 250px;
-            left: 435px;
-        }
-        #three{
-            top: 250px;
-            left: 715px;
-        }
-        #four{
-            top: 250px;
-            left: 985px;
-        }
-    </style>
+    <link href="css/thirdPage.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <h2> Вопрос #3. Какие из месяцев не относятся к текущему времени года</h2>
+    <h2> Вопрос #3. Сопоставьте изображения с временами года</h2>
     <div id="first"><img src="images/1.jpg"></div>
     <div id="one"> 1 </div>
     <div id="second"><img src="images/2.jpg"></div>
@@ -68,5 +15,17 @@
     <div id="three"> 3 </div>
     <div id="fourth"><img src="images/4.jpg"></div>
     <div id="four"> 4 </div>
+<div id ='text'>
+   <p> Лето
+       <input maxlength="1" size="1"> </p>
+    <p> Зима
+        <input maxlength="1" size="1">
+    </p>
+    <p> Весна <input maxlength="1" size="1"> </p>
+    <p> Осень <input maxlength="1" size="1"> </p>
+</div>
+<div id="button">
+    <button onclick="window.location.href='http://localhost:8080/index.html'"> Завершить </button>
+</div>
 </body>
 </html>
