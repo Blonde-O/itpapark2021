@@ -7,3 +7,7 @@ https://github.com/vitr1988/itpark2021
 
 //https://ru.stackoverflow.com/questions/901173/Импорт-файла-cvs-в-базу-данных-java?ysclid=kz4hbtw8j9
 https://highload.today/blogs/spring-framework/
+
+http://htmlbook.ru/samhtml5/formy/podskazyvayushchii-tekst
+https://html5book.ru/html-tags/
+
