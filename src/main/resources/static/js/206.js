@@ -7,9 +7,11 @@ function docReady() {
 
 function showCorrectAnswer() {
     if (document.querySelector('input[type=radio]:checked').value == 'value2') {
-        document.querySelector('input[type=radio]:checked').nextElementSibling.style.backgroundColor = 'green';
+        document.querySelector('input[type=radio]:checked').nextElementSibling.style.color = 'green';
+        document.querySelector('input[type=radio]:checked').nextElementSibling.style.fontWeight="bold"
     } else {
-        document.querySelector('input[type=radio]:checked').nextElementSibling.style.backgroundColor = 'red';
+        document.querySelector('input[type=radio]:checked').nextElementSibling.style.color = 'red'
+        document.querySelector('input[type=radio]:checked').nextElementSibling.style.fontWeight="bold"
     }
 
 }
@@ -23,9 +25,11 @@ function showCorrectAnswerForCheckbox() {
         if (check.value == 'value2') {
             check.checked = true;
             check.nextElementSibling.style.color = 'green';
+            check.nextElementSibling.style.fontWeight = "bold";
         } else {
             check.checked = false;
             check.nextElementSibling.style.color = 'red';
+            check.nextElementSibling.style.fontWeight = "bold";
         }
     }
 
