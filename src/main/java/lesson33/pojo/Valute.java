@@ -1,4 +1,4 @@
-package lesson26;
+package lesson33.pojo;
 
 import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,26 +17,26 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.net.URLConnection;
 
-@Component
 @RequiredArgsConstructor
+@Component
 public class Valute {
 
     private static final String URI_ADDRESS = "https://www.cbr-xml-daily.ru/daily_utf8.xml";
     private final ConnectionMaker connection;
 
     @SneakyThrows
-    public BigDecimal getCurrentCourse(String str) {
+    public BigDecimal getCurrentCourse() {
         URLConnection urlConnection = connection.getConnection(URI_ADDRESS);
         BigDecimal value;
         try (InputStream inputStream = urlConnection.getInputStream()) {
             Document xmlDocument = getXML(inputStream);
             XPath xPath = XPathFactory.newInstance().newXPath();
-            String val = (String) xPath.compile("/ValCurs/Valute[CharCode='" + str
+            String val = (String) xPath.compile("/ValCurs/Valute[CharCode='" + "USD"
                             + "']/Value/text()")
                     .evaluate(xmlDocument, XPathConstants.STRING);
             val = val.replace(",", ".");
             BigDecimal nominal = BigDecimal.valueOf((Double) xPath.compile("/ValCurs/Valute[CharCode='"
-                            + str + "']/Nominal")
+                            + "USD" + "']/Nominal")
                     .evaluate(xmlDocument, XPathConstants.NUMBER));
             value = (new BigDecimal(val)).divide(nominal);
         }

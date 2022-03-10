@@ -1,4 +1,4 @@
-package lesson26;
+package lesson33.pojo;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +10,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLConnection;
-
 
 @Component
 public class ConnectionMaker {
