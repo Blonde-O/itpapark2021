@@ -26,7 +26,7 @@ public class InputController {
     }*/
 
     @PostMapping("/convert")
-    public ResultDto multiply (@RequestParam("arg1")BigDecimal a){
-        return new ResultDto(application, converterService.multiply(a));
+    public ResultDto multiply (@RequestParam("arg1")BigDecimal a, @RequestParam("arg2") String name){
+        return new ResultDto(application, converterService.multiply(a, name));
     }
 }

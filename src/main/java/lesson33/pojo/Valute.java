@@ -25,18 +25,18 @@ public class Valute {
     private final ConnectionMaker connection;
 
     @SneakyThrows
-    public BigDecimal getCurrentCourse() {
+    public BigDecimal getCurrentCourse(String valuteName) {
         URLConnection urlConnection = connection.getConnection(URI_ADDRESS);
         BigDecimal value;
         try (InputStream inputStream = urlConnection.getInputStream()) {
             Document xmlDocument = getXML(inputStream);
             XPath xPath = XPathFactory.newInstance().newXPath();
-            String val = (String) xPath.compile("/ValCurs/Valute[CharCode='" + "USD"
+            String val = (String) xPath.compile("/ValCurs/Valute[CharCode='" + valuteName
                             + "']/Value/text()")
                     .evaluate(xmlDocument, XPathConstants.STRING);
             val = val.replace(",", ".");
             BigDecimal nominal = BigDecimal.valueOf((Double) xPath.compile("/ValCurs/Valute[CharCode='"
-                            + "USD" + "']/Nominal")
+                            + valuteName + "']/Nominal")
                     .evaluate(xmlDocument, XPathConstants.NUMBER));
             value = (new BigDecimal(val)).divide(nominal);
         }

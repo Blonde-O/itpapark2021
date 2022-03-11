@@ -14,7 +14,7 @@ public class ConverterServiceImpl implements ConverterService {
 
 
     @Override
-    public BigDecimal multiply(BigDecimal inputValue) {
-        return inputValue.multiply(valute.getCurrentCourse());
+    public BigDecimal multiply(BigDecimal inputValue, String valuteName) {
+        return inputValue.multiply(valute.getCurrentCourse(valuteName));
     }
 }
