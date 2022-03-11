@@ -2,7 +2,6 @@ package lesson29;
 
 import lesson29.interfaces.Unzipper;
 import lesson29.interfaces.Zipper;
-import lesson30.JpaRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

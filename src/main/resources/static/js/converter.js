@@ -11,11 +11,15 @@ $(function () {
             alert('Укажите значение!')
             return;
         }
+        if (arg1<0){
+            alert('Укажите неотрицательное значение!')
+            return;
+        }
         $.ajax({
             url:'/converter/convert?arg1='+arg1,
             type: 'POST',
             success: function (result) {
-                $('#result').text('Результат конвертации ' +result.value);
+                $('#result').text(arg1+ ' RUB = ' +result.resultedValue+ ' USD');
             }
         });
     });

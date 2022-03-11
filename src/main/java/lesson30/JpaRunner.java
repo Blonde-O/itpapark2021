@@ -1,3 +1,4 @@
+/*
 package lesson30;
 
 
@@ -10,4 +11,4 @@ public class JpaRunner {
     public static void main(String[] args) {
         SpringApplication.run(JpaRunner.class, args);
     }
-}
+}*/

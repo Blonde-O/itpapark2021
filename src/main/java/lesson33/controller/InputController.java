@@ -20,6 +20,11 @@ public class InputController {
     private String application;
     private final ConverterService converterService;
 
+    /*@PostMapping("/convert")
+    public Integer multiply (@RequestParam("arg1")BigDecimal a){
+        return  converterService.multiply(a).intValueExact();
+    }*/
+
     @PostMapping("/convert")
     public ResultDto multiply (@RequestParam("arg1")BigDecimal a){
         return new ResultDto(application, converterService.multiply(a));

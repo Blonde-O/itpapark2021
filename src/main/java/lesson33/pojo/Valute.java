@@ -17,8 +17,8 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.net.URLConnection;
 
-@RequiredArgsConstructor
 @Component
+@RequiredArgsConstructor
 public class Valute {
 
     private static final String URI_ADDRESS = "https://www.cbr-xml-daily.ru/daily_utf8.xml";

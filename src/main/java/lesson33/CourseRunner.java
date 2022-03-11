@@ -1,8 +1,10 @@
+/*
 package lesson33;
 
 import lesson33.pojo.Valute;
 import lesson33.service.ConverterService;
 import lombok.SneakyThrows;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.math.BigDecimal;
@@ -18,7 +20,7 @@ public class CourseRunner {
         do {
             try {
                 a = 0;
-                System.out.println("Введите наименование интересующей Вас валюты.");
+                System.out.println("Введите сумму для конвертации.");
 
                 Double amountDouble = scanner.nextDouble();
                 BigDecimal amount = new BigDecimal(amountDouble);
@@ -30,4 +32,4 @@ public class CourseRunner {
         }
         while (a == -1);
     }
-}
+}*/

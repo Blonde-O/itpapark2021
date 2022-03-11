@@ -1,3 +1,4 @@
+/*
 package lesson31;
 
 import org.springframework.boot.SpringApplication;
@@ -12,3 +13,4 @@ public class Lesson31Runner {
         SpringApplication.run(Lesson31Runner.class, args);
     }
 }
+*/
