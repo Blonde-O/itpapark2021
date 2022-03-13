@@ -1,7 +1,7 @@
 package lesson33.pojo;
 
-import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
@@ -26,6 +26,9 @@ public class Valute {
 
     @SneakyThrows
     public BigDecimal getCurrentCourse(String valuteName) {
+        if(valuteName.equals("RUB")){
+            return BigDecimal.ONE;
+        }
         URLConnection urlConnection = connection.getConnection(URI_ADDRESS);
         BigDecimal value;
         try (InputStream inputStream = urlConnection.getInputStream()) {
