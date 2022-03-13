@@ -5,37 +5,58 @@
     <title>Конвертер валют</title>
     <script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/converter.js"></script>
+    <link href="css/converterStyle.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<div>
-    <label for="arg1"> Введите значение в RUB </label>
-    <input id="arg1" type="text" name="arg11"/>
-</div>
-<div>
-    <label for="arg2">Выберите интересующую Вас валюту:</label>
-    <select id="arg2" name="valute">
-        <option value="USD">USD</option>
-        <option value="GBP">GBP</option>
-        <option value="EUR">EUR</option>
-        <option value="BYN">BYN</option>
-        <option value="CNY">CNY</option>
-        <option value="CAD">CAD</option>
-        <option value="AUD">AUD</option>
-        <option value="DKK">DKK</option>
-        <option value="UAH">UAH</option>
-        <option value="SEK">SEK</option>
-        <option value="CHF">CHF</option>
-        <option value="JPY">JPY</option>
-    </select>
-</div>
-<div>
-    <button id="convert"> Рассчитать </button>
-</div>
-<div>
+<div id="body">
+    <div>
+        <label for="arg3">Выберите исходную валюту:</label>
+        <select id="arg3" name="valute">
+            <option value="RUB">RUB</option>
+            <option value="USD">USD</option>
+            <option value="GBP">GBP</option>
+            <option value="EUR">EUR</option>
+            <option value="BYN">BYN</option>
+            <option value="CNY">CNY</option>
+            <option value="CAD">CAD</option>
+            <option value="AUD">AUD</option>
+            <option value="DKK">DKK</option>
+            <option value="UAH">UAH</option>
+            <option value="SEK">SEK</option>
+            <option value="CHF">CHF</option>
+            <option value="JPY">JPY</option>
+        </select>
+    </div>
+    <div>
+        <label for="arg1"> Введите значение </label>
+        <input id="arg1" type="text" name="arg11"/>
+    </div>
+    <div>
+        <label for="arg2">Выберите валюту, в которую конвертируете:</label>
+        <select id="arg2" name="valute">
+            <option value="RUB">RUB</option>
+            <option value="USD">USD</option>
+            <option value="GBP">GBP</option>
+            <option value="EUR">EUR</option>
+            <option value="BYN">BYN</option>
+            <option value="CNY">CNY</option>
+            <option value="CAD">CAD</option>
+            <option value="AUD">AUD</option>
+            <option value="DKK">DKK</option>
+            <option value="UAH">UAH</option>
+            <option value="SEK">SEK</option>
+            <option value="CHF">CHF</option>
+            <option value="JPY">JPY</option>
+        </select>
+    </div>
+    <div>
+        <button id="convert"> Рассчитать</button>
+    </div>
+    <div>
     <span id="result">
         Расчет пока не производился
     </span>
+    </div>
 </div>
-
 </body>
 </html>

@@ -19,7 +19,9 @@ $(function () {
             url: '/converter/convert?arg1=' + arg1 + '&arg2=' + arg2,
             type: 'POST',
             success: function (result) {
-                $('#result').text(arg1 + ' RUB = ' + result.resultedValue + ' ' + arg2);
+                $('#result').text(arg1 + ' ' + arg2 + ' = ' + result.resultedValue + ' RUB')
+                    .css("color", "green")
+                    .css("font-weight", "bold");
             }
         });
     });

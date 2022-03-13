@@ -1,0 +1,12 @@
+body {
+    position: absolute;
+    margin: 50px 0px 0px 30px;
+}
+
+#body {
+    background-color: lightgrey;
+}
+
+#result {
+    color: crimson;
+}
