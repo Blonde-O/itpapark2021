@@ -4,5 +4,5 @@ import java.math.BigDecimal;
 
 public interface ConverterService {
 
-    BigDecimal multiply (BigDecimal inputValue, String valuteName);
+    BigDecimal multiply (BigDecimal inputValue, String firstValute, String secondValute);
 }

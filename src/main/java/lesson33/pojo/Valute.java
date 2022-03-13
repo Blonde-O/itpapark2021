@@ -26,9 +26,6 @@ public class Valute {
 
     @SneakyThrows
     public BigDecimal getCurrentCourse(String valuteName) {
-        if(valuteName.equals("RUB")){
-            return BigDecimal.ONE;
-        }
         URLConnection urlConnection = connection.getConnection(URI_ADDRESS);
         BigDecimal value;
         try (InputStream inputStream = urlConnection.getInputStream()) {
