@@ -4,3 +4,9 @@ databaseChangeLog: #параметр в котором находятся миг
 
   - include: # список активных миграций
       file: db/migrations/data.xml # путь к файлу миграции
+
+  - include: # список активных миграций
+      file: db/migrations/schemaUser.xml # путь к файлу миграции
+
+  - include: # список активных миграций
+      file: db/migrations/dataUser.xml # путь к файлу миграции
