@@ -1,3 +1,4 @@
+/*
 package attempts.authorization.controller;
 
 import attempts.authorization.service.UserService;
@@ -19,3 +20,4 @@ public class InputController {
         userService.add(login,password,name);
     }
 }
+*/

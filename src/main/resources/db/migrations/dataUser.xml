@@ -12,5 +12,24 @@
             <column name="password" value="123" />
             <column name="NAME" value="Roman" />
         </insert>
+        <insert tableName="USER">
+            <column name="LOGIN" value="ZiZi" />
+            <column name="password" value="qwerty" />
+            <column name="NAME" value="Mila" />
+        </insert>
+    </changeSet>
+    <changeSet author="Roman Dorofeev" id="new-user">
+        <insert tableName="USER">
+            <column name="LOGIN" value="Pupa" />
+            <column name="password" value="321" />
+            <column name="NAME" value="Pupa" />
+        </insert>
+    </changeSet>
+    <changeSet author="Roman Dorofeev" id="new-user-1">
+        <insert tableName="USER">
+            <column name="LOGIN" value="Lupa" />
+            <column name="password" value="123!" />
+            <column name="NAME" value="Lupa" />
+        </insert>
     </changeSet>
 </databaseChangeLog>

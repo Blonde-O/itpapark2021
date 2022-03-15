@@ -12,10 +12,10 @@
         </preConditions>
         <createTable tableName="USER">
             <column name="LOGIN" type="VARCHAR(255)">
-                <constraints nullable="false"/>
+                <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="PASSWORD" type="VARCHAR(255)">
-                <constraints nullable="false" primaryKey="true"/>
+                <constraints nullable="false"/>
             </column>
             <column name="NAME" type="VARCHAR(255)">
                 <constraints nullable="false"/>
