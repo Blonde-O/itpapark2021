@@ -9,17 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/registration")
-public class InputController {
-
+@RequestMapping("authorization")
+public class newController {
     private final UserService userService;
 
-    @PostMapping("/reg")
-    public void addNewUser(@RequestParam("arg1") String login,
-                           @RequestParam("arg2") String password,
-                           @RequestParam("arg3") String name) {
-        userService.add(login, password, name);
+    @PostMapping("/aut")
+    public String authorization (@RequestParam("arg1") String login,
+                                 @RequestParam("arg2") String password){
+        return userService.find(login,password);
     }
-
-
 }
