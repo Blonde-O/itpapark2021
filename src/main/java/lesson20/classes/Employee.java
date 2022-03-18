@@ -1,7 +1,9 @@
 package lesson20.classes;
 
-import jakarta.xml.bind.annotation.*;
+
 import lombok.Data;
+
+import javax.xml.bind.annotation.XmlType;
 
 
 @Data

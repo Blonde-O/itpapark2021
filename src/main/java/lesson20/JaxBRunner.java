@@ -1,13 +1,14 @@
 package lesson20;
 
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.Marshaller;
+
 import lesson20.classes.Department;
 import lesson20.classes.Employee;
 import lesson20.classes.EmployeeWrapper;
 import lesson20.classes.Position;
 import lombok.SneakyThrows;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
 import java.io.FileWriter;
 import java.io.StringWriter;
 import java.util.Arrays;
@@ -66,6 +67,7 @@ public class JaxBRunner {
     @SneakyThrows
     private static void xmlWriter(EmployeeWrapper employee) {
         StringWriter writer = new StringWriter();
+
         JAXBContext context = JAXBContext.newInstance(EmployeeWrapper.class);
         Marshaller marshaller = context.createMarshaller();
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
