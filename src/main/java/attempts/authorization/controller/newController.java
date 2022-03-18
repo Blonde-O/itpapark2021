@@ -2,14 +2,11 @@ package attempts.authorization.controller;
 
 import attempts.authorization.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("authorization")
+@RequestMapping("/authorization")
 public class newController {
     private final UserService userService;
 
