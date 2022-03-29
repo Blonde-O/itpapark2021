@@ -1,0 +1,35 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+
+    <changeSet author="Roman Dorofeev" id="Populate-table-region">
+        <insert tableName="CITY">
+            <column name="CODE" value="77" />
+            <column name="NAME" value="Москва" />
+        </insert>
+        <insert tableName="CITY">
+            <column name="CODE" value="22" />
+            <column name="NAME" value="Алтайский край" />
+        </insert>
+        <insert tableName="CITY">
+            <column name="CODE" value="34" />
+            <column name="NAME" value="Волгоградская область" />
+        </insert>
+        <insert tableName="CITY">
+            <column name="CODE" value="42" />
+            <column name="NAME" value="Кемеровская область" />
+        </insert>
+        <insert tableName="CITY">
+            <column name="CODE" value="52" />
+            <column name="NAME" value="Нижегородская область" />
+        </insert>
+        <insert tableName="CITY">
+            <column name="CODE" value="59" />
+            <column name="NAME" value="Пермский край" />
+        </insert>
+    </changeSet>
+</databaseChangeLog>
