@@ -16,6 +16,6 @@ public class RegionDto {
     private String name;
 
     public String getCodeStr() {
-        return String.format("genre_%s", code);
+        return String.format("region_%s", code);
     }
 }
