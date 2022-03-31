@@ -25,16 +25,13 @@ public class RegionPageController {
     public String index(Model model,
                         @PositiveOrZero(originValue = 15) @RequestParam(required = false, defaultValue = "0") Integer page,
                         @Positive @RequestParam(required = false, defaultValue = "5") Integer size) {
-//        if (page < 0 || size <= 0) {
-//            throw new IllegalArgumentException("Check input parameters");
-//        }
         RegionPageDto allRegions = regionService.getPage(PageRequest.of(page, size));
         model.addAttribute("regions", allRegions);
         return "region/regions";
     }
 
     @GetMapping("/region/add")
-    public String newRegion (Model model) {
+    public String newRegion(Model model) {
         return "region/region";
     }
 
