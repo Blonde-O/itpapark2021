@@ -17,7 +17,7 @@ $(function () {
             return;
         }
         $.ajax({
-            url: '/converter/convert?arg1=' + arg1 + '&arg3=' + arg3 + '&arg2=' + arg2,
+            url: 'converter/convert?arg1=' + arg1 + '&arg3=' + arg3 + '&arg2=' + arg2,
             type: 'POST',
             success: function (result) {
                 $('#result').text(arg1 + ' ' + arg3 + ' = ' + result.resultedValue + ' ' + arg2)

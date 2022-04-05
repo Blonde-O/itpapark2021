@@ -16,6 +16,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         return userRepository.findByLogin(login).map(UserPrincipal::new)
-                .orElseThrow(() -> new IllegalArgumentException("Пользователь с таким логином не найден" + login));
+                .orElseThrow(() -> new IllegalArgumentException("Пользователь с таким логином не найден " + login));
     }
 }

@@ -1,6 +1,9 @@
 package lesson37.config;
 
+import lesson33.service.ConverterService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -16,14 +19,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @Configuration
 @RequiredArgsConstructor
+@EntityScan({"lesson33", "lesson37"})
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private final UserDetailsService userDetailsService;
 
-
-
-
     @Override
-    public void configure(WebSecurity web) throws Exception {
+    public void configure(WebSecurity web) {
         web.ignoring()
                 .antMatchers("/css/**", "/webjars/**", "/images/**");
     }
@@ -35,19 +36,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .and()
                 .authorizeRequests().antMatchers(
-                        "/genres", "/genre/**",
-                        "/books", "/book/**",
+                        "/converter.html","/convert/**",
                         "/api/**").authenticated()
                 .and().formLogin();
     }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
     }
+
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();

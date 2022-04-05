@@ -5,11 +5,11 @@ databaseChangeLog: #параметр в котором находятся миг
   #- include: # список активных миграций
     #  file: db/migrations/data.xml # путь к файлу миграции
 
-  - include: # список активных миграций
-      file: db/migrations/schemaUser.xml # путь к файлу миграции
+  #- include: # список активных миграций
+  #    file: db/migrations/schemaUser.xml # путь к файлу миграции
 
-  - include: # список активных миграций
-      file: db/migrations/dataUser.xml # путь к файлу миграции
+  #- include: # список активных миграций
+  #    file: db/migrations/dataUser.xml # путь к файлу миграции
 
   - include: # список активных миграций
       file: db/migrations/lesson35/schemaRegion.xml # путь к файлу миграции
@@ -18,3 +18,6 @@ databaseChangeLog: #параметр в котором находятся миг
       file: db/migrations/lesson35/schemaRegion.xml # путь к файлу миграции
   - include: # список активных миграций
       file: db/migrations/lesson35/dataRegion.xml # путь к файлу миграции
+
+  - include: # список активных миграций
+      file: db/migrations/lesson37/springSecuritydata.xml # путь к файлу миграции

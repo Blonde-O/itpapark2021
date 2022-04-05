@@ -1,0 +1,83 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet author="Roman Dorofeev" id="Create-table-role">
+        <preConditions>
+            <not>
+                <tableExists tableName="ROLE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="ROLE">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Roman Dorofeev" id="Create-table-user">
+        <preConditions>
+            <not>
+                <tableExists tableName="USER"/>
+            </not>
+        </preConditions>
+        <createTable tableName="USER">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="LOGIN" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="PASSWORD" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="STATUS" type="INT(1)" defaultValue="1">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ROLE_ID" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="FK_USER_ROLE" references="ROLE(ID)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Roman Dorofeev" id="Populate-table-role-and-user">
+        <insert tableName="ROLE">
+            <!-- Id is auto incremented -->
+            <column name="NAME" value="ADMIN" />
+        </insert>
+        <insert tableName="ROLE">
+            <!-- Id is auto incremented -->
+            <column name="NAME" value="USER_L1" />
+        </insert>
+        <insert tableName="ROLE">
+            <!-- Id is auto incremented -->
+            <column name="NAME" value="USER_L2" />
+        </insert>
+        <insert tableName="USER">
+            <column name="LOGIN" value="Roman" />
+            <column name="PASSWORD" value="$2a$10$IeIRnVHInFD4RHY65SjOIergW.zRjiXK/kz8nqi2xW7QrhBKvgoBS" />
+            <column name="ROLE_ID" valueComputed="(SELECT ID FROM ROLE WHERE NAME = 'ADMIN')" />
+        </insert>
+        <insert tableName="USER">
+            <column name="LOGIN" value="Ivan" />
+            <column name="PASSWORD" value="$2a$10$e6Uf6ntu2LM8.1uexFkWAeZfylbahMkQHSgiWWTtbK3YfbVCkSloK" />
+            <column name="ROLE_ID" valueComputed="(SELECT ID FROM ROLE WHERE NAME = 'USER_L1')" />
+        </insert>
+        <insert tableName="USER">
+            <column name="LOGIN" value="Marina" />
+            <column name="PASSWORD" value="$2a$10$7omoMOggYmgGAj4Bi8T9c.saitIzk4JB3Hat85Q.NUxSNvQ8l3gd2" />
+            <column name="ROLE_ID" valueComputed="(SELECT ID FROM ROLE WHERE NAME = 'USER_L2')" />
+        </insert>
+        <insert tableName="USER">
+            <column name="LOGIN" value="Maxim" />
+            <column name="PASSWORD" value="$2a$10$K8XZERbKrYv8l8SXTGo1ju6K1Rh3QfLHaftMq9Z84j0rKSsM0JAe2" />
+            <column name="STATUS" value="0" />
+            <column name="ROLE_ID" valueComputed="(SELECT ID FROM ROLE WHERE NAME = 'ADMIN')" />
+        </insert>
+    </changeSet>
+</databaseChangeLog>
