@@ -19,7 +19,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 @Configuration
 @RequiredArgsConstructor
-@EntityScan({"lesson33", "lesson37"})
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private final UserDetailsService userDetailsService;
 
