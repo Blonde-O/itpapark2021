@@ -36,6 +36,8 @@
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <mapstruct.defaulComponentModel>spring</mapstruct.defaulComponentModel>
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <aspectjrt.version>${aspectjweaver.version}</aspectjrt.version>
+        <aspectjweaver.version>1.9.5</aspectjweaver.version>
     </properties>
 
     <parent>
@@ -190,6 +192,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>${aspectjrt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectjweaver.version}</version>
         </dependency>
     </dependencies>
 
