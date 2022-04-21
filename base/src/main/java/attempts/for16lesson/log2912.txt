@@ -1,0 +1,4 @@
+дек. 29, 2021 4:46:20 PM ForLogger writeMessage
+INFO: Залупачес
+дек. 29, 2021 4:50:42 PM ForLogger writeMessage
+INFO: пздц задачка
