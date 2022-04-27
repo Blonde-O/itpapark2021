@@ -1,0 +1,5 @@
+databaseChangeLog: #параметр в котором находятся миграции
+  - include: # список активных миграций
+      file: db/migrations/schemaCity.xml # путь к файлу миграции
+  - include: # список активных миграций
+      file: db/migrations/dataCity.xml # путь к файлу миграции
