@@ -9,6 +9,6 @@ import org.springframework.context.annotation.Configuration;
 import javax.sql.DataSource;
 
 @Configuration
-@EntityScan({"lesson30.lesson43.model"})
+@EntityScan({"lesson30"})
 public class AppConfig {
 }
